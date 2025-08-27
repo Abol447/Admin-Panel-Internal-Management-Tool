@@ -1,0 +1,11 @@
+/node_modules
+/dist
+.env
+.DS_Store
+*.log
+.env.local
+.env.*.local
+.vscode
+.idea/
+*.sublime-workspace
+Thumbs.db
