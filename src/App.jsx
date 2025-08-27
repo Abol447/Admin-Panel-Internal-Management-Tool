@@ -1,9 +1,7 @@
+import Layout from "./component/Layout";
+
 function App() {
-  return (
-    <div className="flex justify-center items-center bg-red-900 min-h-screen font-bold text-white text-3xl">
-      sds
-    </div>
-  );
+  return <Layout />;
 }
 
 export default App;
