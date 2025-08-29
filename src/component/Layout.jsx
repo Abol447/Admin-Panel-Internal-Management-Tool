@@ -5,11 +5,15 @@ import Navbar from "./Navbar";
 
 export default function Layout() {
   return (
-    <div>
+    <div className="bg-gray-200" >
       <Navbar />
-      <div>
-        <Sidebar />
+      <div >
+        <div className="p-5" >
+          <Sidebar />
+        </div>
+
         <Index />
+
       </div>
     </div>
   );
