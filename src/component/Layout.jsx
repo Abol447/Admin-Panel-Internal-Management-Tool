@@ -1,15 +1,15 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Index from "../routes/Index";
 import Navbar from "./Navbar";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <div>
       <Navbar />
-      <div>
+      <div className="flex bg-[#F1F1F1] pt-4">
         <Sidebar />
-        <Index />
+        <Outlet />
       </div>
     </div>
   );
