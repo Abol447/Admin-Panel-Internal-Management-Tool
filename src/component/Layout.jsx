@@ -1,18 +1,16 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Index from "../routes/Index";
 import Navbar from "./Navbar";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <div className="bg-gray-200" >
       <Navbar />
-      <div >
-        <div className="p-5" >
-          <Sidebar />
-        </div>
 
-        <Index />
+      <div className="flex bg-[#F1F1F1] pt-4">
+        <Sidebar />
+        <Outlet />
 
       </div>
     </div>
