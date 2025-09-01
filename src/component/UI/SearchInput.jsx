@@ -1,5 +1,5 @@
-import React from 'react'
-import { BiSearch } from 'react-icons/bi'
+import React from "react";
+import { BiSearch } from "react-icons/bi";
 
 function SearchInput({placeholder , }) {
     return (
@@ -16,4 +16,4 @@ function SearchInput({placeholder , }) {
     )
 }
 
-export default SearchInput
+export default SearchInput;
