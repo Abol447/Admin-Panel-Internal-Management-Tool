@@ -5,11 +5,13 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <div>
+    <div className="bg-gray-200" >
       <Navbar />
+
       <div className="flex bg-[#F1F1F1] pt-4">
         <Sidebar />
         <Outlet />
+
       </div>
     </div>
   );
