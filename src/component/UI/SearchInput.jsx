@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiSearch } from 'react-icons/bi'
 
-function SearchInput() {
+function SearchInput({placeholder , }) {
     return (
         <div className="relative flex ">
 
@@ -9,7 +9,7 @@ function SearchInput() {
 
             <input
                 className="w-full bg-transparent border-none focus:border-none focus:outline-none focus:ring-0 rounded-md pl-10 pr-3 py-2 "
-                placeholder="Queck Search"
+                placeholder={placeholder}
             />
 
         </div>
