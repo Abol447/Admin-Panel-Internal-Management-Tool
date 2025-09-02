@@ -1,9 +1,11 @@
-import React from 'react'
-import { BiSearch } from 'react-icons/bi'
+import React from "react";
+import { BiSearch } from "react-icons/bi";
 
 function SearchInput() {
-    return (
-        <div className="relative flex ">
+  return (
+    <div className="flex justify-center items-center gap-2">
+      <BiSearch className="w-5 h-5 text-blue-500" />
+
 
             <form>
 
@@ -17,6 +19,7 @@ function SearchInput() {
 
         </div>
     )
+
 }
 
-export default SearchInput
+export default SearchInput;
