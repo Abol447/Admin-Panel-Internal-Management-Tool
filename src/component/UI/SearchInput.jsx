@@ -6,12 +6,20 @@ function SearchInput() {
     <div className="flex justify-center items-center gap-2">
       <BiSearch className="w-5 h-5 text-blue-500" />
 
-      <input
-        className="bg-transparent pb-1 border-none focus:border-none rounded-md focus:outline-none focus:ring-0 w-full h-[20px]"
-        placeholder="Queck Search"
-      />
-    </div>
-  );
+
+            <form>
+
+                <BiSearch className="absolute w-5 h-5 top-2.5 left-2.5 text-blue-500" />
+
+                <input
+                    className="w-full bg-transparent border-none focus:border-none focus:outline-none focus:ring-0 rounded-md pl-10 pr-3 py-2 "
+                    placeholder="Queck Search"
+                />
+            </form>
+
+        </div>
+    )
+
 }
 
 export default SearchInput;
