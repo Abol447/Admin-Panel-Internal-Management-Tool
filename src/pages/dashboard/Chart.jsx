@@ -25,55 +25,13 @@ export default function Chart({ titr, category, width, data, lable }) {
   return (
     <div className="flex flex-col items-start gap-6">
       <div className="space-y-2">
-        <div className="flex items-center h-[32px] font-bold text-[20px]">
+        <div className="flex items-center h-[32px] font-medium text-[20px]">
           {" "}
           {titr}
         </div>
         <div className="text-[#8E8E93] text-[16px]">{category}</div>
       </div>
       <div className="flex justify-center items-center w-[384px] h-[315px]">
-        {/* <ResponsiveContainer width="100%" height={282}>
-          {/* <AreaChart
-            data={data["data"]}
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <XAxis dataKey="year" />
-            <YAxis />
-            {data["areas"].map((item) => (
-              <Area
-                type="linear"
-                dataKey={item["title"]}
-                stackId="1"
-                stroke={item["color"]}
-                strokeWidth={2}
-                fill={item["color"]}
-              />
-            ))}
-            <CartesianGrid
-              strokeDasharray="10 5"
-              strokeWidth={1.5}
-              stroke="#8E8E93"
-              vertical={false}
-              z
-            />
-            <Tooltip />
-            <Legend
-              verticalAlign="bottom"
-              height={36}
-              payload={data.areas.map((item) => ({
-                id: item.title,
-                value: item.title,
-                type: "square",
-                color: item.color,
-              }))}
-            />
-          </AreaChart>
-        </ResponsiveContainer> */}{" "}
         <VictoryChart
           height={258}
           width={384}
