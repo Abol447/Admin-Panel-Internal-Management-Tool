@@ -1,21 +1,23 @@
 import React, { createContext, useContext, useState } from "react";
 import { GoDotFill } from "react-icons/go";
-const paginationContext = createContext();
-export default function Pagination({ children }) {
+export const paginationContext = createContext(0);
+export default function Pagination({ children, lenght }) {
   const [index, setIndex] = useState(0);
   return (
-    <paginationContext.Provider value={{ index: index, setIndex: setIndex }}>
+    <paginationContext.Provider
+      value={{ index: index, setIndex: setIndex, lenght: lenght }}
+    >
       <div className="flex justify-between items-center h-full">{children}</div>
     </paginationContext.Provider>
   );
 }
 function LeftBtn({ icon }) {
-  const { setIndex } = useContext(paginationContext);
+  const { setIndex, index } = useContext(paginationContext);
   return (
     <div
       className="flex justify-center items-center"
       onClick={() => {
-        setIndex((pre) => (pre = pre - 1));
+        index > 0 ? setIndex((pre) => (pre = pre - 1)) : null;
       }}
     >
       {icon}
@@ -23,12 +25,13 @@ function LeftBtn({ icon }) {
   );
 }
 function RightBtn({ icon }) {
-  const { setIndex } = useContext(paginationContext);
+  const { setIndex, lenght, index } = useContext(paginationContext);
   return (
     <div
       className="flex justify-center items-center"
       onClick={() => {
-        setIndex((pre) => (pre = pre + 1));
+        index < lenght - 1 ? setIndex((pre) => (pre = pre + 1)) : null;
+        console.log(1);
       }}
     >
       {icon}
