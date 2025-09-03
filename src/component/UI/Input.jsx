@@ -4,7 +4,7 @@ function Input({ type, placeholder, label }) {
     return (
 
         <div>
-            <label for={label} className="block my-2 text-sm text-[#00000]">{label}</label>
+            <label for={label} className="block my-2 text-sm">{label}</label>
             <input
                 id={label}
                 placeholder={placeholder}
