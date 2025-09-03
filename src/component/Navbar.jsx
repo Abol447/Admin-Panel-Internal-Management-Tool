@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
-        <div className="flex items-center">
+        
           <div className="flex justify-between items-center px-6 w-[272px] cursor-pointer row">
             <img
               src="/images/user-avatar-2.jpg"
@@ -18,13 +18,13 @@ export default function Navbar() {
             </div>
             <FaCaretDown className="w-5 h-5 text-gray-500" />
           </div>
-        </div>
+      
 
         <SearchInput />
       </div>
 
       <button className="relative mx-5 text-blue-500 text-2xl">
-        <span className="block top-0 right-0 absolute bg-red-500 rounded-full ring-2 ring-white w-2 h-2"></span>
+        <span className="block top-0.5 right-0.5 absolute bg-red-500 rounded-full ring-1 ring-white w-2 h-2"></span>
         <IoNotifications />
       </button>
     </div>
