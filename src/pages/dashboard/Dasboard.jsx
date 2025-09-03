@@ -7,19 +7,35 @@ import Chart from "./Chart";
 import PieChart from "./PieChart";
 import Button from "../../common/Button";
 export default function Dasboard() {
-  const chartInfo = {
-    data: [
-      { year: "2016", paris: 150, bangkok: 200, SanFrancisco: 15 },
-      { year: "2017", paris: 120, bangkok: 250, SanFrancisco: 180 },
-      { year: "2018", paris: 180, bangkok: 30, SanFrancisco: 200 },
-      { year: "2019", paris: 220, bangkok: 320, SanFrancisco: 240 },
-    ],
-    areas: [
-      { title: "paris", color: "#F4A26C" },
-      { title: "bangkok", color: "#3FAEA3" },
-      { title: "SanFrancisco", color: "#914DF0" },
-    ],
-  };
+  const chartInfo = [
+    {
+      data: [
+        { year: "2016", paris: 150, bangkok: 200, SanFrancisco: 15 },
+        { year: "2017", paris: 120, bangkok: 250, SanFrancisco: 180 },
+        { year: "2018", paris: 180, bangkok: 30, SanFrancisco: 200 },
+        { year: "2019", paris: 220, bangkok: 320, SanFrancisco: 240 },
+      ],
+      areas: [
+        { title: "paris", color: "#F4A26C" },
+        { title: "bangkok", color: "#3FAEA3" },
+        { title: "SanFrancisco", color: "#914DF0" },
+      ],
+    },
+    {
+      data: [
+        { year: "2015", paris: 350, bangkok: 400, SanFrancisco: 150 },
+        { year: "2016", paris: 150, bangkok: 200, SanFrancisco: 15 },
+        { year: "2017", paris: 120, bangkok: 250, SanFrancisco: 180 },
+        { year: "2018", paris: 180, bangkok: 30, SanFrancisco: 200 },
+        { year: "2019", paris: 220, bangkok: 320, SanFrancisco: 240 },
+      ],
+      areas: [
+        { title: "paris", color: "#F4A26C" },
+        { title: "bangkok", color: "#3FAEA3" },
+        { title: "SanFrancisco", color: "#914DF0" },
+      ],
+    },
+  ];
   const pieChart = {
     data: [
       { x: "KFC", y: 30 },
@@ -93,7 +109,7 @@ export default function Dasboard() {
     <div className="flex gap-[43px]">
       <div className="flex flex-wrap gap-4 w-[960px]">
         <WidgetContainer>
-          <Pagination>
+          <Pagination lenght={3}>
             <Pagination.leftBtn
               icon={<FaAngleLeft className="fill-dotBg w-6 h-6" />}
             />
@@ -103,7 +119,7 @@ export default function Dasboard() {
                 lable={"total"}
                 category={"Employees"}
                 titr={"Company Facts"}
-                data={chartInfo}
+                chartInfo={chartInfo}
               />
               <Pagination.dot lenght={3} />
             </Pagination.content>
@@ -113,7 +129,7 @@ export default function Dasboard() {
           </Pagination>
         </WidgetContainer>
         <WidgetContainer>
-          <Pagination>
+          <Pagination lenght={3}>
             <Pagination.leftBtn
               icon={<FaAngleLeft className="fill-dotBg w-6 h-6" />}
             />
