@@ -2,6 +2,7 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 
 function SearchInput() {
+
     return (
         <from className="flex justify-center items-center gap-2">
             <BiSearch className="w-5 h-5 text-blue-500" />
@@ -12,6 +13,7 @@ function SearchInput() {
             />
         </from>
     )
+
 
 }
 

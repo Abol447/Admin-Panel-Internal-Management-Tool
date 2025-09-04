@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Area,
   AreaChart,
@@ -19,9 +19,11 @@ import {
   VictoryStack,
   VictoryTooltip,
 } from "victory";
+import { paginationContext } from "../../common/Pagination";
 
-export default function Chart({ titr, category, width, data, lable }) {
-  console.log(data);
+export default function Chart({ titr, category, width, chartInfo, lable }) {
+  const { index } = useContext(paginationContext);
+  const data = chartInfo[index];
   return (
     <div className="flex flex-col items-start gap-6">
       <div className="space-y-2">
