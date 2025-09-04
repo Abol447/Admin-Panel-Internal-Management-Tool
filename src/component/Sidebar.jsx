@@ -57,8 +57,8 @@ export default function Sidebar() {
 
 
   return (
-    <div className="bg-[#F1F1F1] w-[256px] h-screen flex flex-col justify-between">
-      <div className="space-y-2 bg-white p-4 rounded-md text-gray-900">
+    <div className="w-[256px] flex flex-col justify-between">
+      <div className="space-y-2 bg-white p-4 rounded-[14px] text-gray-900">
         {SidebarLink.map((item) => (
           <div key={item.path}>
             <NavLink
@@ -80,9 +80,9 @@ export default function Sidebar() {
 
 
 
-      <div className="bg-[#ffff] rounded-lg mb-5 text-center" >
+      <div className="bg-[#ffff] h-[80px] rounded-[14px] bottom-0 text-center" >
         <h2 className="font-bold py-3" > CAMIOCA </h2>
-        <div className="text-sm text-[#8E8E93] p-2" >
+        <div className="text-sm text-[#8E8E93] " >
           version : 11.07.02
         </div>
       </div>
