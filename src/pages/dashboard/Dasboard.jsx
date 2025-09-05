@@ -1,11 +1,14 @@
-import React from "react";
-import { TiPlus } from "react-icons/ti";
+import React, { lazy, Suspense } from "react";
 import WidgetContainer from "./WidgetContainer";
 import Pagination from "../../common/Pagination";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import Chart from "./Chart";
-import PieChart from "./PieChart";
+const TiPlus = lazy(() =>
+  import("react-icons/ti").then((mod) => ({ default: mod.TiPlus }))
+);
+import rightBtn from "../../asset/pic/Chevron right.svg";
+import leftBtn from "../../asset/pic/Chevron left.svg";
 import Button from "../../common/Button";
+const PieChart = React.lazy(() => import("./PieChart"));
+const Chart = React.lazy(() => import("./Chart"));
 export default function Dasboard() {
   const chartInfo = [
     {
@@ -56,89 +59,44 @@ export default function Dasboard() {
       "#4CD964",
     ],
   };
-  // //   const opt = {
-
-  //     axes: [
-  //       {
-  //         type: "category",
-  //         position: "bottom",
-  //         tick: {
-  //           interval: 50,
-  //         },
-  //         min: 2015,
-  //       },
-  //       {
-  //         type: "number",
-  //         position: "right",
-  //       },
-  //     ],
-  //     series: [
-  //       {
-  //         type: "area",
-  //         xKey: "year",
-  //         yKey: "SanFrancisco",
-  //         fill: "",
-  //         yName: "San Francisco",
-  //         stacked: true,
-  //         stroke: "#ffff",
-  //         strokeWidth: 3,
-  //       },
-
-  //       {
-  //         type: "area",
-  //         xKey: "year",
-  //         fill: "#3FAEA3",
-  //         stroke: "#ffff",
-  //         yKey: "bangkok",
-  //         yName: "bangkok",
-  //         strokeWidth: 3,
-  //         stacked: true,
-  //       },
-  //       {
-  //         type: "area",
-  //         stroke: "#ffff",
-  //         xKey: "year",
-  //         yKey: "paris",
-  //         yName: "paris",
-  //         fill: "#F4A26C",
-  //         stacked: true,
-  //       },
-  //     ],
-  // //   };
   return (
     <div className="flex gap-[43px]">
       <div className="flex flex-wrap gap-4 w-[960px]">
         <WidgetContainer>
           <Pagination lenght={3}>
             <Pagination.leftBtn
-              icon={<FaAngleLeft className="fill-dotBg w-6 h-6" />}
+              icon={<img src={leftBtn} className="fill-dotBg w-6 h-6" />}
             />
             <Pagination.content>
-              <Chart
-                width={384}
-                lable={"total"}
-                category={"Employees"}
-                titr={"Company Facts"}
-                chartInfo={chartInfo}
-              />
+              <Suspense fallback={<div>loading</div>}>
+                <Chart
+                  width={384}
+                  lable={"total"}
+                  category={"Employees"}
+                  titr={"Company Facts"}
+                  chartInfo={chartInfo}
+                />
+              </Suspense>
               <Pagination.dot lenght={3} />
             </Pagination.content>
             <Pagination.rightBtn
-              icon={<FaAngleRight className="fill-dotBg w-6 h-6" />}
+              icon={<img src={rightBtn} className="fill-dotBg w-6 h-6" />}
             />
           </Pagination>
         </WidgetContainer>
         <WidgetContainer>
           <Pagination lenght={3}>
             <Pagination.leftBtn
-              icon={<FaAngleLeft className="fill-dotBg w-6 h-6" />}
+              icon={<img src={leftBtn} className="fill-dotBg w-6 h-6" />}
             />
             <Pagination.content>
-              <PieChart titr={"Statistics"} data={pieChart} />
+              <Suspense fallback={<div>loading</div>}>
+                <PieChart titr={"Statistics"} data={pieChart} />
+              </Suspense>
               <Pagination.dot lenght={3} />
             </Pagination.content>
             <Pagination.rightBtn
-              icon={<FaAngleRight className="fill-dotBg w-6 h-6" />}
+              icon={<img src={rightBtn} className="fill-dotBg w-6 h-6" />}
             />
           </Pagination>
         </WidgetContainer>
@@ -166,7 +124,9 @@ export default function Dasboard() {
         height={"40px"}
       >
         <div className="flex justify-center items-center gap-1">
-          <TiPlus className="w-6 h-6 text-white" />
+          <Suspense fallback={<div className="w-6 h-6"></div>}>
+            <TiPlus className="w-6 h-6 text-white" />
+          </Suspense>
           <div className="font-medium text-[14px] text-white">Add widget</div>
         </div>
       </Button>

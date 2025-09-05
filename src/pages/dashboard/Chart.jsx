@@ -1,15 +1,5 @@
 import React, { useContext } from "react";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  Label,
-  Legend,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+
 import {
   VictoryArea,
   VictoryAxis,

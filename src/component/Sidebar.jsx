@@ -1,8 +1,5 @@
 import React from "react";
-
-import { IoMdCalendar, IoMdChatbubbles, IoMdHelp, IoMdPeople } from "react-icons/io";
-import { MdAssignment, MdDashboard, MdOutlineBusiness, MdOutlineHourglassEmpty } from "react-icons/md";
-import { RiArtboardLine } from "react-icons/ri";
+import dashboardPic from "../asset/pic/dashboard.svg";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -14,50 +11,44 @@ export default function Sidebar() {
   const SidebarLink = [
     {
       label: "Dashboard",
-      icon: <MdDashboard className={`${IconClass}`} />,
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "People",
-      icon: <IoMdPeople className={`${IconClass}`} />
-
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "Projects",
-      icon: <MdAssignment className={`${IconClass}`} />
-
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "callender",
-      icon: <IoMdCalendar className={`${IconClass}`} />
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "Training",
-      icon: <RiArtboardLine className={`${IconClass}`} />
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "Timesheet",
-      icon: <MdOutlineHourglassEmpty className={`${IconClass}`} />
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "reports",
-      icon: <IoMdChatbubbles className={`${IconClass}`} />
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "Timesheet",
-      icon: <MdOutlineBusiness className={`${IconClass}`} />
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
     {
       label: "Help",
-      icon: <IoMdHelp className={`${IconClass}`} />
+      icon: <img src={dashboardPic} className={`${IconClass}`} />,
     },
   ];
 
-
-
-
-
   return (
-    <div className="bg-[#F1F1F1] w-[256px] h-screen flex flex-col justify-between">
+    <div className="flex flex-col justify-between bg-[#F1F1F1] w-[256px] h-screen">
       <div className="space-y-2 bg-white p-4 rounded-md text-gray-900">
         {SidebarLink.map((item) => (
           <div key={item.path}>
@@ -71,22 +62,18 @@ export default function Sidebar() {
             >
               <i>{item.icon}</i>
 
-              <span className="block ms-2 px-2 text-sm font-medium">{item.label}</span>
+              <span className="block ms-2 px-2 font-medium text-sm">
+                {item.label}
+              </span>
             </NavLink>
           </div>
         ))}
       </div>
 
-
-
-
-      <div className="bg-[#ffff] rounded-lg mb-5 text-center" >
-        <h2 className="font-bold py-3" > CAMIOCA </h2>
-        <div className="text-sm text-[#8E8E93] p-2" >
-          version : 11.07.02
-        </div>
+      <div className="bg-[#ffff] mb-5 rounded-lg text-center">
+        <h2 className="py-3 font-bold"> CAMIOCA </h2>
+        <div className="p-2 text-[#8E8E93] text-sm">version : 11.07.02</div>
       </div>
-
     </div>
   );
 }
