@@ -6,7 +6,7 @@ const BiSearch = lazy(() =>
 function SearchInput() {
   return (
     <from className="flex justify-center items-center gap-2">
-      <Suspense>
+      <Suspense fallback={<div className="w-5 h-5"></div>}>
         <BiSearch className="w-5 h-5 text-blue-500" />
       </Suspense>
 
