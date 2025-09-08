@@ -11,7 +11,7 @@ export default function Layout() {
       <Navbar dropDown={dropDown} setDropDown={setDropDown} />
       <div className="relative">
         {dropDown ? <BgBlur /> : null}
-        <div className={`flex gap-4 px-4 pt-4`}>
+        <div className={`flex gap-4 px-4 py-4`}>
           <Sidebar />
           <Outlet />
         </div>

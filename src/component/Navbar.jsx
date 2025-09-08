@@ -46,7 +46,12 @@ export default function Navbar({ dropDown, setDropDown }) {
             )}
           </div>
           <DropDown open={dropDown}>
-            <DropDownElement text={"My details"} icon={profile} />
+            <DropDownElement
+              text={"My details"}
+              setOPen={setDropDown}
+              icon={profile}
+              path={"my-detail"}
+            />
             <DropDownElement text={"My calendar"} icon={calender} />
             <DropDownElement text={"Vacations"} icon={beach} />
             <DropDownElement text={"Corporate CV"} icon={profile} />

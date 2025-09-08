@@ -3,15 +3,23 @@ import gsap from "gsap";
 export default function DropDown({ children, open }) {
   const dropDown = useRef();
   useEffect(() => {
-    gsap.fromTo(
-      dropDown.current,
-      {
-        opacity: open ? 0 : 1,
-      },
-      {
-        opacity: open ? 1 : 0,
-      }
-    );
+    if (open) {
+      gsap.to(dropDown.current, {
+        opacity: 1,
+        y: 0,
+        display: "block",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to(dropDown.current, {
+        opacity: 0,
+        y: -20,
+        display: "none",
+        duration: 0.2,
+        ease: "power2.in",
+      });
+    }
   }, [open]);
   return (
     <div
