@@ -1,0 +1,66 @@
+import React from "react";
+import PersonalForm from "./PersonalForm";
+import PersonalInfo from "./PersonalInfo";
+import ProjectTable from "./ProjectTable";
+import StatuseCircle from "../../common/StatuseCircle";
+const projectHeader = [
+  {
+    width: "104px",
+    body: "Status",
+  },
+  {
+    width: "270px",
+    body: "Project Task",
+  },
+  {
+    width: "128px",
+    body: "Role",
+  },
+  {
+    width: "128px",
+    body: "Task",
+  },
+  {
+    width: "128px",
+    body: "Start date",
+  },
+  {
+    width: "370px",
+    body: "Capacity",
+  },
+];
+const projectBody = [
+  [
+    <div className="pl-[24px]">
+      {" "}
+      <StatuseCircle bg={"green"} width={"24px"} />
+    </div>,
+    "Project 1",
+    "Specialist",
+    "Management",
+    "11.06.2019",
+    "35%",
+  ],
+  [
+    <div className="pl-[24px]">
+      {" "}
+      <StatuseCircle bg={"green"} width={"24px"} />
+    </div>,
+    "Project 1",
+    "Specialist",
+    "Management",
+    "11.06.2019",
+    "35%",
+  ],
+];
+export default function MyDetail() {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-10 bg-white px-6 py-[16px] rounded-[14px] w-[1128px] h-[472px]">
+        <PersonalForm />
+        <PersonalInfo />
+      </div>
+      <ProjectTable header={projectHeader} body={projectBody} />
+    </div>
+  );
+}

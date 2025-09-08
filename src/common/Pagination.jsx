@@ -1,5 +1,14 @@
-import React, { createContext, useContext, useState } from "react";
-import { GoDotFill } from "react-icons/go";
+import React, {
+  createContext,
+  lazy,
+  Suspense,
+  useContext,
+  useState,
+} from "react";
+
+const GoDotFill = lazy(() =>
+  import("react-icons/go").then((mod) => ({ default: mod.GoDotFill }))
+);
 export const paginationContext = createContext(0);
 export default function Pagination({ children, lenght }) {
   const [index, setIndex] = useState(0);
@@ -51,11 +60,13 @@ function PaginationDots({ lenght }) {
   return (
     <div className="flex justify-center items-center">
       {dots.map((_, i) => (
-        <GoDotFill
-          className={`w-paginationDots ${
-            index === i ? "fill-dotBg" : "fill-dotBgunactive"
-          }`}
-        />
+        <Suspense>
+          <GoDotFill
+            className={`w-paginationDots ${
+              index === i ? "fill-dotBg" : "fill-dotBgunactive"
+            }`}
+          />
+        </Suspense>
       ))}
     </div>
   );
