@@ -48,8 +48,8 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="flex flex-col justify-between bg-[#F1F1F1] w-[256px]">
-      <div className="space-y-2 bg-white p-4 rounded-md text-gray-900">
+    <div className="flex flex-col justify-between bg-[#F1F1F1] w-[256px] h-[960px]">
+      <div className="space-y-2 bg-white p-4 rounded-[14px] text-gray-900">
         {SidebarLink.map((item) => (
           <div key={item.path}>
             <NavLink
