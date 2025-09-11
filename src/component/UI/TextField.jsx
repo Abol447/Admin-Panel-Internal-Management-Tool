@@ -1,10 +1,9 @@
+import React from 'react'
 
-
-function Input({ type, placeholder, label }) {
+function TextField({label , placeholder , type}) {
     return (
-
-        <div>
-            <label htmlFor={label} className="block my-2 text-sm">{label}</label>
+        <div >
+            <label htmlFor={label} className="block my-2 text-sm"> {label} </label>
             <input
                 id={label}
                 placeholder={placeholder}
@@ -12,8 +11,7 @@ function Input({ type, placeholder, label }) {
                 className="input--style"
             />
         </div>
-
     )
 }
 
-export default Input
+export default TextField;

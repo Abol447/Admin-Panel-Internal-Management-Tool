@@ -15,7 +15,7 @@
   }
 
   .input--style {
-    @apply block bg-gray-100 focus:shadow-md p-3 rounded-lg focus:outline-none focus:ring-[#605BFF] focus:ring-1 w-full;
+    @apply block bg-[#F1F1F1] focus:shadow-md p-3 rounded-[3px] focus:outline-none focus:ring-[#605BFF] focus:ring-1 w-[226px] h-[36px];
   }
   .DropDownHeader--style {
     @apply flex justify-between items-center px-6;
