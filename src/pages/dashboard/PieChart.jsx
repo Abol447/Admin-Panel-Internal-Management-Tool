@@ -7,7 +7,7 @@ export default function PieChart({ titr, data }) {
       <div className="font-medium text-[20px]">{titr}</div>
       <div className="flex justify-center">
         <svg width={384} height={350}>
-          <g transform="translate(70, 0)">
+          <g transform="translate(55, 0)">
             <VictoryPie
               standalone={false}
               height={264}

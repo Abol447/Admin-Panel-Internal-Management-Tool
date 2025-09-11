@@ -7,6 +7,7 @@ export default function Button({
   children,
   bgColor,
   height,
+  borderWidth,
 }) {
   return (
     <div
@@ -15,8 +16,9 @@ export default function Button({
         borderColor: color,
         width: width,
         height: height,
+        borderWidth: borderWidth,
       }}
-      className={` border flex items-center justify-center rounded-[30px]`}
+      className={`  flex items-center justify-center rounded-[30px]`}
     >
       {children}
     </div>

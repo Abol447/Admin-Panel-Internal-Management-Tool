@@ -12,6 +12,7 @@ export default {
       colors: {
         dotBg: "#2F80ED",
         dotBgunactive: "#D1D1D6",
+        svgBlue: "#2F80ED",
       },
     },
   },
