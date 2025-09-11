@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import InputContainer from "../../common/InputContainer";
-import Select from "../../common/Select";
-import editBtn from "../../asset/pic/Group.png";
+import Input from "../../component/UI/Input";
+import { Svg } from "../../utils/svg/main";
+import IconContainer from "../../component/UI/IconContainer";
+import FormSelect from "../../component/UI/FormSelect";
+
 export default function PersonalForm() {
   const { register } = useForm({
     defaultValues: {
@@ -19,86 +21,96 @@ export default function PersonalForm() {
       StatusDate: "13/05/2009",
     },
   });
+  const svgClass = new Svg();
+  const inputProp = {
+    type: "text",
+    register: register,
+    lableClassName: "form--titr h-[14px]",
+  };
   return (
     <form className="space-y-4 bg-white">
       <div className="flex items-center gap-4">
         <h2 className="font-medium text-[20px]">My details</h2>
-        <img src={editBtn} alt="" />
+        <IconContainer>
+          {svgClass.Pen("w-[24px] h-[24px] fill-svgBlue")}
+        </IconContainer>
       </div>
       <div className="flex items-center gap-8">
         <div className="space-y-[28px]">
-          <InputContainer>
-            <h4 className="form--titr">Name</h4>
-            <input className="w-[384px] form--input" {...register("name")} />
-          </InputContainer>
+          <Input
+            {...inputProp}
+            label={"Name"}
+            registerName={"name"}
+            className="w-[384px] form--input"
+          />
           <div className="flex items-center gap-4">
-            <InputContainer>
-              <h4 className="form--titr">Practice</h4>
-              <input
-                className="w-[184px] form--input"
-                {...register("Practice")}
-              />
-            </InputContainer>
-            <InputContainer>
-              <h4 className="form--titr">Branch</h4>
-              <Select
-                register={register}
-                name={"Branch"}
-                opt={["Paris"]}
-                form={true}
-              />
-            </InputContainer>
-          </div>
-          <InputContainer>
-            <h4 className="form--titr">Division</h4>
-            <input
-              className="w-[384px] form--input"
-              {...register("Division")}
+            <Input
+              {...inputProp}
+              label={"Practice"}
+              registerName={"Practice"}
+              className="w-[184px] form--input"
             />
-          </InputContainer>
-          <InputContainer>
-            <h4 className="form--titr">Login</h4>
-            <input className="w-[384px] form--input" {...register("Login")} />
-          </InputContainer>
+            <FormSelect
+              opt={["Paris"]}
+              label={"Branch"}
+              className="w-[184px] form--input"
+              registerName={"Branch"}
+              {...inputProp}
+            />
+          </div>
+          <Input
+            {...inputProp}
+            label={"Division"}
+            registerName={"Division"}
+            className="w-[384px] form--input"
+          />
+          <Input
+            {...inputProp}
+            label={"Login"}
+            registerName={"Login"}
+            className="w-[384px] form--input"
+          />
         </div>
         <div className="space-y-[28px]">
-          <InputContainer>
-            <h4 className="form--titr">Title</h4>
-            <input className="w-[384px] form--input" {...register("Title")} />
-          </InputContainer>
+          <Input
+            {...inputProp}
+            label={"Title"}
+            registerName={"Title"}
+            className="w-[384px] form--input"
+          />
           <div className="flex items-center gap-4">
-            <InputContainer>
-              <h4 className="form--titr">Contract</h4>
-              <input
-                className="w-[184px] form--input"
-                {...register("Contract")}
-              />
-            </InputContainer>
-            <InputContainer>
-              <h4 className="form--titr">Grade</h4>
-              <input className="w-[184px] form--input" {...register("Grade")} />
-            </InputContainer>
-          </div>
-          <InputContainer>
-            <h4 className="form--titr">Division manager</h4>
-            <input
-              className="w-[384px] form--input"
-              {...register("DivisionManager")}
+            <Input
+              {...inputProp}
+              label={"Contract"}
+              registerName={"Contract"}
+              className="w-[184px] form--input"
             />
-          </InputContainer>
-          <InputContainer>
-            <h4 className="form--titr">Status history</h4>
-            <div className="flex gap-4">
-              <input
-                className="w-[184px] form--input"
-                {...register("Status")}
-              />
-              <input
-                className="w-[184px] form--input"
-                {...register("StatusDate")}
-              />
-            </div>
-          </InputContainer>
+            <Input
+              {...inputProp}
+              label={"Grade"}
+              registerName={"Grade"}
+              className="w-[184px] form--input"
+            />
+          </div>
+          <Input
+            {...inputProp}
+            label={"Division manager"}
+            registerName={"DivisionManager"}
+            className="w-[384px] form--input"
+          />
+          <div className="flex items-center gap-4">
+            <Input
+              {...inputProp}
+              label={"Status history"}
+              registerName={"Status"}
+              className="w-[184px] form--input"
+            />
+            <Input
+              {...inputProp}
+              registerName={"StatusDate"}
+              className="w-[184px] form--input"
+            />
+          </div>
         </div>
       </div>
     </form>

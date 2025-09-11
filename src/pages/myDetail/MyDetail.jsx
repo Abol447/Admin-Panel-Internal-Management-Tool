@@ -31,7 +31,7 @@ const projectHeader = [
 ];
 const projectBody = [
   [
-    <div className="pl-[24px]">
+    <div className="pl-[4px]">
       {" "}
       <StatuseCircle bg={"green"} width={"24px"} />
     </div>,
@@ -42,7 +42,7 @@ const projectBody = [
     "35%",
   ],
   [
-    <div className="pl-[24px]">
+    <div className="pl-[4px]">
       {" "}
       <StatuseCircle bg={"green"} width={"24px"} />
     </div>,

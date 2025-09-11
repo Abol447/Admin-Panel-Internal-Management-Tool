@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
+import { Svg } from "../utils/svg/main";
 
+const svgCalss = new Svg();
 export const dropDownContext = createContext();
 export default function ElementDropDown({ children }) {
   const [open, setOpen] = useState(false);
@@ -15,12 +17,15 @@ export function DropDownHeader({ openIcon, closeIcon, children }) {
   return (
     <div className="DropDownHeader--style">
       {children}
-      <img
+      <div
         onClick={() => {
           setOpen((value) => (value = !value));
         }}
-        src={open ? closeIcon : openIcon}
-      />
+      >
+        {open
+          ? svgCalss.UpArrow("fill-svgBlue w-6 h-6")
+          : svgCalss.DownArrow("fill-svgBlue w-6 h-6")}
+      </div>
     </div>
   );
 }

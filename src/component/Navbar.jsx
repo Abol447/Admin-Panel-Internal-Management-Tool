@@ -5,9 +5,10 @@ import calender from "../asset/pic/_ionicons_svg_md-calendar.png";
 import rocket from "../asset/pic/_ionicons_svg_md-rocket.png";
 import beach from "../asset/pic/baseline-beach_access-24px.png";
 import up_drop_down from "../asset/pic/up_drop_down.svg";
-const IoNotifications = lazy(() =>
-  import("react-icons/io5").then((mod) => ({ default: mod.IoNotifications }))
-);
+import { IoNotifications } from "react-icons/io5";
+// const IoNotifications = lazy(() =>
+//   import("react-icons/io5").then((mod) => ({ default: mod.IoNotifications }))
+// );
 import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
 
@@ -53,7 +54,12 @@ export default function Navbar({ dropDown, setDropDown }) {
               path={"my-detail"}
             />
             <DropDownElement text={"My calendar"} icon={calender} />
-            <DropDownElement text={"Vacations"} icon={beach} />
+            <DropDownElement
+              text={"Vacations"}
+              icon={beach}
+              setOPen={setDropDown}
+              path={"vacations"}
+            />
             <DropDownElement text={"Corporate CV"} icon={profile} />
             <DropDownElement text={"Perfomance review"} icon={rocket} />
           </DropDown>
@@ -64,9 +70,9 @@ export default function Navbar({ dropDown, setDropDown }) {
 
       <button className="relative mx-5 text-blue-500 text-2xl">
         <span className="block top-0.5 right-0.5 absolute bg-red-500 rounded-full ring-1 ring-white w-2 h-2"></span>
-        <Suspense>
-          <IoNotifications />
-        </Suspense>
+        {/* <Suspense> */}
+        <IoNotifications />
+        {/* </Suspense> */}
       </button>
     </div>
   );
