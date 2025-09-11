@@ -1,3 +1,4 @@
+
 function Input({
   type,
   placeholder,
@@ -26,6 +27,4 @@ function Input({
       />
     </div>
   );
-}
-
 export default Input;

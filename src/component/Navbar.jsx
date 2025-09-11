@@ -1,23 +1,30 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, useState } from "react";
 import arrow_drop_down from "../asset/pic/arrow_drop_down.svg";
 import profile from "../asset/pic/baseline-account_circle-24px.png";
 import calender from "../asset/pic/_ionicons_svg_md-calendar.png";
 import rocket from "../asset/pic/_ionicons_svg_md-rocket.png";
 import beach from "../asset/pic/baseline-beach_access-24px.png";
 import up_drop_down from "../asset/pic/up_drop_down.svg";
+
 import { IoNotifications } from "react-icons/io5";
-// const IoNotifications = lazy(() =>
-//   import("react-icons/io5").then((mod) => ({ default: mod.IoNotifications }))
-// );
+
+
+
+
 import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
 
 import DropDownElement from "./DropDownElement";
+import Notif from "../pages/myDetail/Notif";
 const FaCaretDown = lazy(() =>
   import("react-icons/fa").then((mod) => ({ default: mod.FaCaretDown }))
 );
 
-export default function Navbar({ dropDown, setDropDown }) {
+export default function Navbar({ dropDown, setDropDown , dropDownNotif , setDropDownNotif }) {
+
+
+  
+
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
@@ -46,7 +53,9 @@ export default function Navbar({ dropDown, setDropDown }) {
               />
             )}
           </div>
-          <DropDown open={dropDown}>
+          <DropDown 
+          className="left-[34px] top-[70px]"
+          open={dropDown}>
             <DropDownElement
               text={"My details"}
               setOPen={setDropDown}
@@ -68,12 +77,21 @@ export default function Navbar({ dropDown, setDropDown }) {
         <SearchInput />
       </div>
 
+
       <button className="relative mx-5 text-blue-500 text-2xl">
         <span className="block top-0.5 right-0.5 absolute bg-red-500 rounded-full ring-1 ring-white w-2 h-2"></span>
         {/* <Suspense> */}
         <IoNotifications />
         {/* </Suspense> */}
       </button>
+
+      <Notif
+      dropDownNotif={dropDownNotif}
+      setDropDownNotif={setDropDownNotif}
+      />
+  
+
+
     </div>
   );
 }
