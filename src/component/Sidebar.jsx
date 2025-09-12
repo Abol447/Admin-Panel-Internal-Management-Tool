@@ -1,49 +1,50 @@
 import React from "react";
 import dashboardPic from "../asset/pic/dashboard.svg";
 import { NavLink } from "react-router-dom";
+import { Svg } from "../utils/svg/main";
 
 export default function Sidebar() {
   const IconClass = "w-[24px] h-[24px] text-gray-400 group-hover:text-blue-500";
 
   const ActiveClass =
     "flex hover:bg-blue-100 group hover:text-blue-500 rounded-md";
-
+  const svg = new Svg();
   const SidebarLink = [
     {
       label: "Dashboard",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Dashboard("#8E8E93 ", "24px"),
     },
     {
       label: "People",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.People("fill-svgGray ", "24px"),
     },
     {
       label: "Projects",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Task("#8E8E93 ", "24px"),
     },
     {
       label: "callender",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Calender("fill-svgGray  w-6"),
     },
     {
       label: "Training",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Board("fill-svgGray  w-6"),
     },
     {
       label: "Timesheet",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.TimeGlass("fill-svgGray  w-6 h-6"),
     },
     {
       label: "reports",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Chat("fill-svgGray", "24px"),
     },
     {
       label: "Timesheet",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Building(),
     },
     {
       label: "Help",
-      icon: <img src={dashboardPic} className={`${IconClass}`} />,
+      icon: svg.Question("#8E8E93", "24px"),
     },
   ];
 

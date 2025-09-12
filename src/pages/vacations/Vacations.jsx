@@ -3,6 +3,7 @@ import DateSelection from "./DateSelection";
 import PlannedVacation from "./PlannedVacation";
 import EditsIcon from "../../component/UI/EditsIcon";
 import StatuseCircle from "../../common/StatuseCircle";
+import ActualVacations from "./ActualVacations";
 
 const vacationHeader = [
   {
@@ -62,9 +63,10 @@ const vacationsBody = [
 ];
 export default function Vacations() {
   return (
-    <div className="space-y-4 rounded-[14px]">
+    <div className="space-y-4">
       <DateSelection />
       <PlannedVacation header={vacationHeader} body={vacationsBody} />
+      <ActualVacations header={vacationHeader} body={vacationsBody} />
     </div>
   );
 }

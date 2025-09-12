@@ -1,30 +1,19 @@
 import { lazy, useState } from "react";
 import arrow_drop_down from "../asset/pic/arrow_drop_down.svg";
-import profile from "../asset/pic/baseline-account_circle-24px.png";
-import calender from "../asset/pic/_ionicons_svg_md-calendar.png";
-import rocket from "../asset/pic/_ionicons_svg_md-rocket.png";
-import beach from "../asset/pic/baseline-beach_access-24px.png";
 import up_drop_down from "../asset/pic/up_drop_down.svg";
-
 import { IoNotifications } from "react-icons/io5";
-
-
-
-
 import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
-
 import DropDownElement from "./DropDownElement";
+import { Svg } from "../utils/svg/main";
 import Notif from "../pages/myDetail/Notif";
+
 const FaCaretDown = lazy(() =>
   import("react-icons/fa").then((mod) => ({ default: mod.FaCaretDown }))
 );
 
-export default function Navbar({ dropDown, setDropDown , dropDownNotif , setDropDownNotif }) {
-
-
-  
-
+const svg = new Svg();
+export default function Navbar({ dropDown, setDropDown }) {
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
@@ -53,30 +42,36 @@ export default function Navbar({ dropDown, setDropDown , dropDownNotif , setDrop
               />
             )}
           </div>
-          <DropDown 
-          className="left-[34px] top-[70px]"
-          open={dropDown}>
+          <DropDown className="top-[70px] left-[34px]" open={dropDown}>
             <DropDownElement
               text={"My details"}
               setOPen={setDropDown}
-              icon={profile}
+              icon={svg.Profile("fill-svgGray  w-6")}
               path={"my-detail"}
             />
-            <DropDownElement text={"My calendar"} icon={calender} />
+            <DropDownElement
+              text={"My calendar"}
+              icon={svg.Calender("w-6 h-6 fill-svgGray")}
+            />
             <DropDownElement
               text={"Vacations"}
-              icon={beach}
+              icon={svg.Umbrella("w-6 h-6 fill-svgGray")}
               setOPen={setDropDown}
               path={"vacations"}
             />
-            <DropDownElement text={"Corporate CV"} icon={profile} />
-            <DropDownElement text={"Perfomance review"} icon={rocket} />
+            <DropDownElement
+              text={"Corporate CV"}
+              icon={svg.Document(" fill-svgGray", "24px")}
+            />
+            <DropDownElement
+              text={"Perfomance review"}
+              icon={svg.Jet("w-6 h-6 fill-svgGray")}
+            />
           </DropDown>
         </div>
 
         <SearchInput />
       </div>
-
 
       <button className="relative mx-5 text-blue-500 text-2xl">
         <span className="block top-0.5 right-0.5 absolute bg-red-500 rounded-full ring-1 ring-white w-2 h-2"></span>
@@ -86,12 +81,9 @@ export default function Navbar({ dropDown, setDropDown , dropDownNotif , setDrop
       </button>
 
       <Notif
-      dropDownNotif={dropDownNotif}
-      setDropDownNotif={setDropDownNotif}
+        dropDownNotif={dropDownNotif}
+        setDropDownNotif={setDropDownNotif}
       />
-  
-
-
     </div>
   );
 }
