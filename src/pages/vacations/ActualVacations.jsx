@@ -1,6 +1,9 @@
 import React from "react";
+import Table from "../../common/Table";
+import Button from "../../common/Button";
+import { Plus } from "../../component/UI/Icon";
 
-export default function ActualVacations() {
+export default function ActualVacations({ header, body }) {
   return (
     <div className="space-y-4 bg-white py-[10px] rounded-[14px] w-[1128px] h-[221px]">
       <div className="flex justify-between items-center px-6">

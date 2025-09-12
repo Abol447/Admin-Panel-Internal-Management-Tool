@@ -13,10 +13,12 @@ import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
 
 import DropDownElement from "./DropDownElement";
+import { Svg } from "../utils/svg/main";
 const FaCaretDown = lazy(() =>
   import("react-icons/fa").then((mod) => ({ default: mod.FaCaretDown }))
 );
 
+const svg = new Svg();
 export default function Navbar({ dropDown, setDropDown }) {
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
@@ -50,18 +52,27 @@ export default function Navbar({ dropDown, setDropDown }) {
             <DropDownElement
               text={"My details"}
               setOPen={setDropDown}
-              icon={profile}
+              icon={svg.Profile("fill-svgGray  w-6")}
               path={"my-detail"}
             />
-            <DropDownElement text={"My calendar"} icon={calender} />
+            <DropDownElement
+              text={"My calendar"}
+              icon={svg.Calender("w-6 h-6 fill-svgGray")}
+            />
             <DropDownElement
               text={"Vacations"}
-              icon={beach}
+              icon={svg.Umbrella("w-6 h-6 fill-svgGray")}
               setOPen={setDropDown}
               path={"vacations"}
             />
-            <DropDownElement text={"Corporate CV"} icon={profile} />
-            <DropDownElement text={"Perfomance review"} icon={rocket} />
+            <DropDownElement
+              text={"Corporate CV"}
+              icon={svg.Document(" fill-svgGray", "24px")}
+            />
+            <DropDownElement
+              text={"Perfomance review"}
+              icon={svg.Jet("w-6 h-6 fill-svgGray")}
+            />
           </DropDown>
         </div>
 

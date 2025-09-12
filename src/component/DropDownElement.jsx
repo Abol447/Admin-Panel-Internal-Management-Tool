@@ -11,7 +11,7 @@ export default function DropDownElement({ icon, text, path, setOPen }) {
         setOPen(() => false);
       }}
     >
-      <img className="w-6 h-6" src={icon} />
+      <div>{icon}</div>
       <span className="min-w-[143px] font-medium text-[14px] text-nowrap">
         {text}
       </span>

@@ -13,6 +13,7 @@ export default {
         dotBg: "#2F80ED",
         dotBgunactive: "#D1D1D6",
         svgBlue: "#2F80ED",
+        svgGray: "#8E8E93",
       },
     },
   },
