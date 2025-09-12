@@ -1,19 +1,13 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, useState } from "react";
 import arrow_drop_down from "../asset/pic/arrow_drop_down.svg";
-import profile from "../asset/pic/baseline-account_circle-24px.png";
-import calender from "../asset/pic/_ionicons_svg_md-calendar.png";
-import rocket from "../asset/pic/_ionicons_svg_md-rocket.png";
-import beach from "../asset/pic/baseline-beach_access-24px.png";
 import up_drop_down from "../asset/pic/up_drop_down.svg";
 import { IoNotifications } from "react-icons/io5";
-// const IoNotifications = lazy(() =>
-//   import("react-icons/io5").then((mod) => ({ default: mod.IoNotifications }))
-// );
 import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
-
 import DropDownElement from "./DropDownElement";
 import { Svg } from "../utils/svg/main";
+import Notif from "../pages/myDetail/Notif";
+
 const FaCaretDown = lazy(() =>
   import("react-icons/fa").then((mod) => ({ default: mod.FaCaretDown }))
 );
@@ -48,7 +42,7 @@ export default function Navbar({ dropDown, setDropDown }) {
               />
             )}
           </div>
-          <DropDown open={dropDown}>
+          <DropDown className="top-[70px] left-[34px]" open={dropDown}>
             <DropDownElement
               text={"My details"}
               setOPen={setDropDown}
@@ -85,6 +79,11 @@ export default function Navbar({ dropDown, setDropDown }) {
         <IoNotifications />
         {/* </Suspense> */}
       </button>
+
+      <Notif
+        dropDownNotif={dropDownNotif}
+        setDropDownNotif={setDropDownNotif}
+      />
     </div>
   );
 }
