@@ -7,6 +7,7 @@ const TiPlus = lazy(() =>
 import rightBtn from "../../asset/pic/Chevron right.svg";
 import leftBtn from "../../asset/pic/Chevron left.svg";
 import Button from "../../common/Button";
+import { Svg } from "../../utils/svg/main";
 const PieChart = React.lazy(() => import("./PieChart"));
 const Chart = React.lazy(() => import("./Chart"));
 export default function Dasboard() {
@@ -59,6 +60,7 @@ export default function Dasboard() {
       "#4CD964",
     ],
   };
+  const svg = new Svg();
   return (
     <div className="flex gap-[43px]">
       <div className="flex flex-wrap gap-4 w-[960px]">
@@ -124,9 +126,7 @@ export default function Dasboard() {
         height={"40px"}
       >
         <div className="flex justify-center items-center gap-1">
-          <Suspense fallback={<div className="w-6 h-6"></div>}>
-            <TiPlus className="w-6 h-6 text-white" />
-          </Suspense>
+          {svg.Plus("w-[14px] h-[14px]", "white")}
           <div className="font-medium text-[14px] text-white">Add widget</div>
         </div>
       </Button>

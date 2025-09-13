@@ -1,15 +1,11 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
+import { Svg } from "../../utils/svg/main";
 
-const BiSearch = lazy(() =>
-  import("react-icons/bi").then((mod) => ({ default: mod.BiSearch }))
-);
+const svg = new Svg();
 function SearchInput() {
   return (
     <from className="flex justify-center items-center gap-2">
-      <Suspense fallback={<div className="w-5 h-5"></div>}>
-        <BiSearch className="w-5 h-5 text-blue-500" />
-      </Suspense>
-
+      {svg.Search("w-[20px] h-[20px] fill-svgBlue")}
       <input
         className="bg-transparent pb-1 border-none focus:border-none rounded-md focus:outline-none focus:ring-0 w-full h-[20px]"
         placeholder="Queck Search"

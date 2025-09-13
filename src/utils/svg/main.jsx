@@ -445,49 +445,29 @@ export class Svg {
   }
   Search(className) {
     return (
-      <svg
-        className={className}
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
-      >
-        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-        <g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        ></g>
-        <g id="SVGRepo_iconCarrier">
-          {" "}
-          <title>search</title> <desc>Created with Sketch Beta.</desc>{" "}
-          <defs> </defs>{" "}
-          <g
-            id="Page-1"
-            stroke="none"
-            stroke-width="1"
-            fill="none"
-            fill-rule="evenodd"
-            sketch:type="MSPage"
-          >
-            {" "}
-            <g
-              id="Icon-Set"
-              sketch:type="MSLayerGroup"
-              transform="translate(-256.000000, -1139.000000)"
-              fill="#000000"
-            >
-              {" "}
-              <path
-                d="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z"
-                id="search"
-                sketch:type="MSShapeGroup"
-              >
-                {" "}
-              </path>{" "}
-            </g>{" "}
-          </g>{" "}
+      <svg className={className} xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_233_4044)">
+          <path d="M12.9167 11.6667H12.2583L12.025 11.4417C12.8417 10.4917 13.3333 9.25833 13.3333 7.91667C13.3333 4.925 10.9083 2.5 7.91667 2.5C4.925 2.5 2.5 4.925 2.5 7.91667C2.5 10.9083 4.925 13.3333 7.91667 13.3333C9.25833 13.3333 10.4917 12.8417 11.4417 12.025L11.6667 12.2583V12.9167L15.8333 17.075L17.075 15.8333L12.9167 11.6667ZM7.91667 11.6667C5.84167 11.6667 4.16667 9.99167 4.16667 7.91667C4.16667 5.84167 5.84167 4.16667 7.91667 4.16667C9.99167 4.16667 11.6667 5.84167 11.6667 7.91667C11.6667 9.99167 9.99167 11.6667 7.91667 11.6667Z" />
         </g>
+        <defs>
+          <clipPath id="clip0_233_4044">
+            <rect width="20" height="20" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    );
+  }
+  Up(className) {
+    return (
+      <svg className={className} xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 14L12 9L7 14L17 14Z" />
+      </svg>
+    );
+  }
+  Down(className) {
+    return (
+      <svg className={className} xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10L12 15L17 10H7Z" />
       </svg>
     );
   }
