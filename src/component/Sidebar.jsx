@@ -13,6 +13,7 @@ export default function Sidebar() {
     {
       label: "Dashboard",
       icon: svg.Dashboard("#8E8E93 ", "24px"),
+      path: "/",
     },
     {
       label: "People",

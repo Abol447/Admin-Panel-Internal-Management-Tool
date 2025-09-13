@@ -7,14 +7,14 @@ import BgBlur from "../common/BgBlur";
 export default function Layout() {
   const [dropDown, setDropDown] = useState(false);
   const [dropDownNotif, setDropDownNotif] = useState(false);
-  
+
   return (
     <div className="bg-[#F1F1F1]">
-      <Navbar 
-      dropDown={dropDown} 
-      setDropDown={setDropDown}
-      dropDownNotif={dropDownNotif}
-      setDropDownNotif={setDropDownNotif}
+      <Navbar
+        dropDown={dropDown}
+        setDropDown={setDropDown}
+        dropDownNotif={dropDownNotif}
+        setDropDownNotif={setDropDownNotif}
       />
 
       <div className="relative">

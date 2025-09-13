@@ -4,6 +4,7 @@ import ElementDropDown from "../../common/ElementDropDown";
 import openIcon from "../../asset/pic/up_drop_down.svg";
 import closeIcon from "../../asset/pic/arrow_drop_down.svg";
 import Select from "../../common/Select";
+import TableBody from "./TableBody";
 export default function ProjectTable({ header, body }) {
   return (
     <div>
@@ -15,9 +16,12 @@ export default function ProjectTable({ header, body }) {
           </div>
         </ElementDropDown.header>
         <ElementDropDown.body>
-          <Table>
+          <Table data={body}>
             <Table.header content={header} />
-            <Table.body content={body} />
+
+            <Table.body value={true} id={"status"}>
+              {(rows) => <TableBody rows={rows} />}
+            </Table.body>
           </Table>
         </ElementDropDown.body>
       </ElementDropDown>

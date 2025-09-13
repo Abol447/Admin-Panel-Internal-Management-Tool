@@ -1,19 +1,18 @@
-import { lazy, useState } from "react";
 import arrow_drop_down from "../asset/pic/arrow_drop_down.svg";
 import up_drop_down from "../asset/pic/up_drop_down.svg";
-import { IoNotifications } from "react-icons/io5";
 import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
 import DropDownElement from "./DropDownElement";
 import { Svg } from "../utils/svg/main";
 import Notif from "../pages/myDetail/Notif";
-
-const FaCaretDown = lazy(() =>
-  import("react-icons/fa").then((mod) => ({ default: mod.FaCaretDown }))
-);
-
+import { useState } from "react";
 const svg = new Svg();
-export default function Navbar({ dropDown, setDropDown }) {
+export default function Navbar({
+  dropDown,
+  setDropDown,
+  dropDownNotif,
+  setDropDownNotif,
+}) {
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
@@ -29,17 +28,13 @@ export default function Navbar({ dropDown, setDropDown }) {
               <h2>username</h2>
             </div>
             {dropDown ? (
-              <img
-                onClick={() => setDropDown((value) => (value = !value))}
-                className="w-6 h-6"
-                src={arrow_drop_down}
-              />
+              <div onClick={() => setDropDown((value) => (value = !value))}>
+                {svg.Up("w-6 h-6 fill-svgBlue")}
+              </div>
             ) : (
-              <img
-                onClick={() => setDropDown((value) => (value = !value))}
-                className="w-6 h-6"
-                src={up_drop_down}
-              />
+              <div onClick={() => setDropDown((value) => (value = !value))}>
+                {svg.Down("w-6 h-6 fill-svgGray")}
+              </div>
             )}
           </div>
           <DropDown className="top-[70px] left-[34px]" open={dropDown}>
@@ -72,13 +67,6 @@ export default function Navbar({ dropDown, setDropDown }) {
 
         <SearchInput />
       </div>
-
-      <button className="relative mx-5 text-blue-500 text-2xl">
-        <span className="block top-0.5 right-0.5 absolute bg-red-500 rounded-full ring-1 ring-white w-2 h-2"></span>
-        {/* <Suspense> */}
-        <IoNotifications />
-        {/* </Suspense> */}
-      </button>
 
       <Notif
         dropDownNotif={dropDownNotif}

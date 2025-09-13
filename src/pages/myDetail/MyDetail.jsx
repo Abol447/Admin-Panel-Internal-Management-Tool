@@ -30,28 +30,14 @@ const projectHeader = [
   },
 ];
 const projectBody = [
-  [
-    <div className="pl-[4px]">
-      {" "}
-      <StatuseCircle bg={"green"} width={"24px"} />
-    </div>,
-    "Project 1",
-    "Specialist",
-    "Management",
-    "11.06.2019",
-    "35%",
-  ],
-  [
-    <div className="pl-[4px]">
-      {" "}
-      <StatuseCircle bg={"green"} width={"24px"} />
-    </div>,
-    "Project 1",
-    "Specialist",
-    "Management",
-    "11.06.2019",
-    "35%",
-  ],
+  {
+    status: true,
+    ProjectTask: "name",
+    Role: "Specialist",
+    Task: "Management",
+    StartDate: "11.06.2019",
+    Capacity: "35%",
+  },
 ];
 export default function MyDetail() {
   return (
