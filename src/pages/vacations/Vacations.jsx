@@ -31,42 +31,74 @@ const vacationHeader = [
     body: "Approved",
   },
 ];
+const ActualHeader = [
+  {
+    width: "104px",
+    body: "Status",
+  },
+  {
+    width: "270px",
+    body: "Dates",
+  },
+  {
+    width: "128px",
+    body: "Duration in days",
+  },
+  {
+    width: "128px",
+    body: "Workdays",
+  },
+  {
+    width: "128px",
+    body: "Holidays",
+  },
+  {
+    width: "370px",
+    body: "Comments",
+  },
+];
 const vacationsBody = [
-  [
-    <div className="pl-[5px]">
-      {" "}
-      <StatuseCircle bg={"green"} width={"24px"} />
-    </div>,
-    " 112.08.2019 - 22.08.2019",
-    "14",
-    "10",
-    "4",
-    <div className="flex justify-between items-center pr-6">
-      <div>Michael Bluemans</div>
-      <EditsIcon />
-    </div>,
-  ],
-  [
-    <div className="pl-[5px]">
-      {" "}
-      <StatuseCircle bg={"green"} width={"24px"} />
-    </div>,
-    " 112.08.2019 - 22.08.2019",
-    "14",
-    "10",
-    "4",
-    <div className="flex justify-between items-center pr-6">
-      <div>Michael Bluemans</div>
-      <EditsIcon />
-    </div>,
-  ],
+  {
+    status: true,
+    dates: " 112.08.2019 - 22.08.2019",
+    duration: "14",
+    workdays: "10",
+    holidays: "4",
+    approved: "Michael Bluemans",
+  },
+  {
+    status: false,
+    dates: " 112.08.2019 - 22.08.2019",
+    duration: 14,
+    workdays: 10,
+    holidays: 4,
+    approved: "Michael Bluemans",
+  },
+];
+const ActualBody = [
+  {
+    status: true,
+    dates: " 112.08.2019 - 22.08.2019",
+    duration: "14",
+    workdays: "10",
+    holidays: "4",
+    Comments: "Approved and paid",
+  },
+  {
+    status: false,
+    dates: " 112.08.2019 - 22.08.2019",
+    duration: 14,
+    workdays: 10,
+    holidays: 4,
+    Comments: "In processing",
+  },
 ];
 export default function Vacations() {
   return (
     <div className="space-y-4">
       <DateSelection />
       <PlannedVacation header={vacationHeader} body={vacationsBody} />
-      <ActualVacations header={vacationHeader} body={vacationsBody} />
+      <ActualVacations header={ActualHeader} body={ActualBody} />
     </div>
   );
 }
