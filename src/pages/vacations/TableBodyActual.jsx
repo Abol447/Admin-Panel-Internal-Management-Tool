@@ -2,7 +2,7 @@ import React from "react";
 import StatuseCircle from "../../common/StatuseCircle";
 import EditsIcon from "../../component/UI/EditsIcon";
 
-export default function TableBody({ rows }) {
+export default function TableBoduActual({ rows }) {
   return rows ? (
     <>
       {rows.map((item, rowIndex) => (
@@ -24,12 +24,7 @@ export default function TableBody({ rows }) {
           <td className="TbCellStyle">{item.duration}</td>
           <td className="TbCellStyle">{item.workdays}</td>
           <td className="TbCellStyle">{item.holidays}</td>
-          <td className="TbCellStyle">
-            <div className="flex justify-between items-center pr-6 h-full max-h-5">
-              <div>{item.approved}</div>
-              <EditsIcon />
-            </div>
-          </td>
+          <td className="TbCellStyle">{item.Comments}</td>
         </tr>
       ))}
       <tr>
