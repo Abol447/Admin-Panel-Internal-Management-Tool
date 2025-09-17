@@ -3,6 +3,7 @@ import PersonalForm from "./PersonalForm";
 import PersonalInfo from "./PersonalInfo";
 import ProjectTable from "./ProjectTable";
 import StatuseCircle from "../../common/StatuseCircle";
+import useGet from "../../hooks/useGet";
 const projectHeader = [
   {
     width: "104px",
@@ -29,6 +30,7 @@ const projectHeader = [
     body: "Capacity",
   },
 ];
+const ProjectInfo = useGet("url", "getProject");
 const projectBody = [
   {
     status: true,

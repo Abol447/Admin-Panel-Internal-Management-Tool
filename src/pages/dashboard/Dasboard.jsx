@@ -8,9 +8,12 @@ import rightBtn from "../../asset/pic/Chevron right.svg";
 import leftBtn from "../../asset/pic/Chevron left.svg";
 import Button from "../../common/Button";
 import { Svg } from "../../utils/svg/main";
+import useGet from "../../hooks/useGet";
 const PieChart = React.lazy(() => import("./PieChart"));
 const Chart = React.lazy(() => import("./Chart"));
 export default function Dasboard() {
+  const { data } = useGet("url", "getChartData");
+  const { data: pie } = useGet("url", "getPieChartInfo");
   const chartInfo = [
     {
       data: [

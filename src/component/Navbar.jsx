@@ -13,6 +13,7 @@ export default function Navbar({
   dropDownNotif,
   setDropDownNotif,
 }) {
+  const useInfo = storage.Get("userInfo");
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
