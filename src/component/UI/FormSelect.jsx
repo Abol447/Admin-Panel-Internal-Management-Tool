@@ -10,7 +10,7 @@ export default function FormSelect({
   register,
 }) {
   return (
-    <div>
+    <div className="space-y-2">
       <div className="flex justify-between items-center">
         <h4 for={label} className={lableClassName}>
           {label}

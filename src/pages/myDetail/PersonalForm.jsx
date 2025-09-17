@@ -6,6 +6,7 @@ import IconContainer from "../../component/UI/IconContainer";
 import FormSelect from "../../component/UI/FormSelect";
 
 export default function PersonalForm() {
+  const defaultInfo = storage.Get("user");
   const { register } = useForm({
     defaultValues: {
       name: "Dominique Charpentier",
