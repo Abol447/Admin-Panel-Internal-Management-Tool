@@ -7,7 +7,7 @@ import BgBlur from "../common/BgBlur";
 export default function Layout() {
   const [dropDown, setDropDown] = useState(false);
   const [dropDownNotif, setDropDownNotif] = useState(false);
-
+  const [menu, setMenu] = useState(false);
   return (
     <div className="bg-[#F1F1F1]">
       <Navbar
@@ -15,12 +15,17 @@ export default function Layout() {
         setDropDown={setDropDown}
         dropDownNotif={dropDownNotif}
         setDropDownNotif={setDropDownNotif}
+        menu={menu}
+        setMenu={setMenu}
       />
 
       <div className="relative">
-        {dropDown || dropDownNotif ? <BgBlur /> : null}
+        {dropDown || dropDownNotif || menu ? <BgBlur /> : null}
         <div className={`flex gap-4 px-4 py-4`}>
-          <Sidebar />
+          <div className="hidden sm:flex">
+            <Sidebar />
+          </div>
+
           <Outlet />
         </div>
       </div>

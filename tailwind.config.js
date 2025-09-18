@@ -15,6 +15,11 @@ export default {
         svgBlue: "#2F80ED",
         svgGray: "#8E8E93",
       },
+      screens: {
+        tablet: "785px",
+        xtablet: "1300px",
+        desktop: "1440px",
+      },
     },
   },
   plugins: [],

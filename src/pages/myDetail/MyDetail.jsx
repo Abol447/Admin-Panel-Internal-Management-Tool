@@ -30,7 +30,7 @@ const projectHeader = [
     body: "Capacity",
   },
 ];
-const ProjectInfo = useGet("url", "getProject");
+// const ProjectInfo = useGet("url", "getProject");
 const projectBody = [
   {
     status: true,

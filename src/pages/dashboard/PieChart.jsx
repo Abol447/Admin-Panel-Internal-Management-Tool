@@ -3,11 +3,11 @@ import { VictoryLabel, VictoryLegend, VictoryPie, VictoryTheme } from "victory";
 
 export default function PieChart({ titr, data }) {
   return (
-    <div className="flex flex-col justify-start gap-4 w-[408px] min-h-[403px]">
+    <div className="flex flex-col justify-start gap-4 w-[330px] tablet:w-[408px] min-h-[403px]">
       <div className="font-medium text-[20px]">{titr}</div>
       <div className="flex justify-center">
         <svg width={384} height={350}>
-          <g transform="translate(55, 0)">
+          <g className="translate-x-[35px] translate-y-[0px] desktop:translate-x-[55px] transform">
             <VictoryPie
               standalone={false}
               height={264}

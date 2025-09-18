@@ -49,7 +49,7 @@ function RightBtn({ icon }) {
 }
 function Content({ children }) {
   return (
-    <div className="flex flex-col justify-between items-center gap-y-pagination h-full">
+    <div className="flex flex-col justify-between items-center gap-4 tablet:gap-y-pagination h-full">
       {children}
     </div>
   );

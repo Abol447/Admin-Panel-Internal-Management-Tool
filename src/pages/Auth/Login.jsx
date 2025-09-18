@@ -17,7 +17,7 @@ function Login() {
     "loginreq",
     {
       onSuccess: (data) => {
-        storage.Set({ key: "userInfo", value: data });
+        // storage.Set({ key: "userInfo", value: data });
       },
     }
   );
