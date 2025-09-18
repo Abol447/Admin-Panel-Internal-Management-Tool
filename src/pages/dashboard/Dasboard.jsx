@@ -66,7 +66,7 @@ export default function Dasboard() {
   const svg = new Svg();
   return (
     <div className="flex gap-[43px]">
-      <div className="flex flex-wrap gap-4 w-[960px]">
+      <div className="flex flex-wrap justify-center tablet:justify-start gap-4 w-full">
         <WidgetContainer>
           <Pagination lenght={3}>
             <Pagination.leftBtn
@@ -106,7 +106,7 @@ export default function Dasboard() {
           </Pagination>
         </WidgetContainer>
         <WidgetContainer>
-          <div className="mx-auto w-[384px] min-h-[403px]">
+          <div className="mx-auto w-[330px] tablet:w-[384px] min-h-[403px]">
             <div className="font-medium text-[20px]">Assigned Risks</div>
             <div className="mx-auto mt-[181px] w-fit h-full font-normal text-[#8E8E93] text-[12px]">
               <span>There are no risks assigned.</span>
@@ -114,7 +114,7 @@ export default function Dasboard() {
           </div>
         </WidgetContainer>
         <WidgetContainer>
-          <div className="mx-auto w-[384px] min-h-[403px]">
+          <div className="mx-auto w-[330px] tablet:w-[384px] min-h-[403px]">
             <div className="font-medium text-[20px]">Assigned Risks</div>
             <div className="mx-auto mt-[181px] w-fit h-full font-normal text-[#8E8E93] text-[12px]">
               <span>There are no risks assigned.</span>
@@ -122,17 +122,19 @@ export default function Dasboard() {
           </div>
         </WidgetContainer>
       </div>
-      <Button
-        color={"#27AE60"}
-        bgColor={"#27AE60"}
-        width={"129px"}
-        height={"40px"}
-      >
-        <div className="flex justify-center items-center gap-1">
-          {svg.Plus("w-[14px] h-[14px]", "white")}
-          <div className="font-medium text-[14px] text-white">Add widget</div>
-        </div>
-      </Button>
+      <div className="hidden xtablet:block">
+        <Button
+          color={"#27AE60"}
+          bgColor={"#27AE60"}
+          width={"129px"}
+          height={"40px"}
+        >
+          <div className="flex justify-center items-center gap-1">
+            {svg.Plus("w-[14px] h-[14px]", "white")}
+            <div className="font-medium text-[14px] text-white">Add widget</div>
+          </div>
+        </Button>
+      </div>
     </div>
   );
 }

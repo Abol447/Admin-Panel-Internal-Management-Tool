@@ -1,31 +1,42 @@
-import arrow_drop_down from "../asset/pic/arrow_drop_down.svg";
-import up_drop_down from "../asset/pic/up_drop_down.svg";
+import { FiAlignRight } from "react-icons/fi";
 import SearchInput from "./UI/SearchInput";
 import DropDown from "./DropDown";
 import DropDownElement from "./DropDownElement";
 import { Svg } from "../utils/svg/main";
 import Notif from "../pages/myDetail/Notif";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import SidebarMenu from "./SidebarMenu";
+import gsap from "gsap";
 const svg = new Svg();
 export default function Navbar({
   dropDown,
   setDropDown,
   dropDownNotif,
   setDropDownNotif,
+  menu,
+  setMenu,
 }) {
-  const useInfo = storage.Get("userInfo");
+  // const useInfo = storage.Get("userInfo");
+
+  const sideBar = useRef();
+  useEffect(() => {
+    gsap.to(sideBar.current, {
+      x: menu ? 210 : 0,
+    });
+  }, [menu]);
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
         <div className="relative flex items-center rounded-b-lg h-[64px]">
           {" "}
-          <div className="flex justify-between items-center px-6 w-[272px] cursor-pointer row">
+          <div className="flex justify-between items-center gap-2 px-6 w-[250px] tablet:w-[272px] cursor-pointer row">
             <img
               src="/images/user-avatar-2.jpg"
               alt=""
               className="rounded-full w-10 h-10"
             />
-            <div className="w-[134px] text-lg">
+            <div className="w-[134px] text-[15px] tablet:text-lg">
               <h2>username</h2>
             </div>
             {dropDown ? (
@@ -66,13 +77,30 @@ export default function Navbar({
           </DropDown>
         </div>
 
-        <SearchInput />
+        <div className="hidden tablet:block">
+          <SearchInput />
+        </div>
       </div>
-
-      <Notif
-        dropDownNotif={dropDownNotif}
-        setDropDownNotif={setDropDownNotif}
-      />
+      <div
+        className="tablet:hidden px-5"
+        onClick={() => {
+          setMenu((value) => !value);
+        }}
+      >
+        <FiAlignRight className="text-[24px]" />
+        <div
+          ref={sideBar}
+          className="top-[80px] left-[-200px] z-50 absolute w-[200px]"
+        >
+          <SidebarMenu />
+        </div>
+      </div>
+      <div className="hidden tablet:block">
+        <Notif
+          dropDownNotif={dropDownNotif}
+          setDropDownNotif={setDropDownNotif}
+        />
+      </div>
     </div>
   );
 }
