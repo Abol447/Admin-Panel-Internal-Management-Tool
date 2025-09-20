@@ -29,10 +29,11 @@ export function TableHeader({ content }) {
     </thead>
   );
 }
-export function TableBody({ children, id = null, value = null }) {
+export function TableBody({ children, id = null, value = null, fn = null }) {
   let { data } = useContext(TableContext);
-  if (id != null && value != null)
-    data = data.filter((item) => item[id] === value);
+  if (fn != null && id != null && value != null) {
+    data = fn(id, value, data);
+  }
 
   return <tbody className="bg-white">{children(data)}</tbody>;
 }

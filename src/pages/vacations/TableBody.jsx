@@ -20,7 +20,9 @@ export default function TableBody({ rows }) {
               />
             </div>
           </td>
-          <td className="TbCellStyle">{item.dates}</td>
+          <td className="TbCellStyle">
+            {item.startDate}_{item.endDate}
+          </td>
           <td className="TbCellStyle">{item.duration}</td>
           <td className="TbCellStyle">{item.workdays}</td>
           <td className="TbCellStyle">{item.holidays}</td>

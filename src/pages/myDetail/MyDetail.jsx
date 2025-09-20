@@ -40,6 +40,14 @@ const projectBody = [
     StartDate: "11.06.2019",
     Capacity: "35%",
   },
+  {
+    status: false,
+    ProjectTask: "name",
+    Role: "Specialist",
+    Task: "Management",
+    StartDate: "11.06.2019",
+    Capacity: "35%",
+  },
 ];
 export default function MyDetail() {
   return (

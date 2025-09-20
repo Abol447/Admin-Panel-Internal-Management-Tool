@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DateSelection from "./DateSelection";
 import PlannedVacation from "./PlannedVacation";
 import EditsIcon from "../../component/UI/EditsIcon";
@@ -60,7 +60,8 @@ const ActualHeader = [
 const vacationsBody = [
   {
     status: true,
-    dates: " 112.08.2019 - 22.08.2019",
+    startDate: "2019-08-12",
+    endDate: "2019-08-22",
     duration: "14",
     workdays: "10",
     holidays: "4",
@@ -68,7 +69,8 @@ const vacationsBody = [
   },
   {
     status: false,
-    dates: " 112.08.2019 - 22.08.2019",
+    startDate: "2019-08-12",
+    endDate: "2019-08-22",
     duration: 14,
     workdays: 10,
     holidays: 4,
@@ -78,7 +80,8 @@ const vacationsBody = [
 const ActualBody = [
   {
     status: true,
-    dates: " 112.08.2019 - 22.08.2019",
+    startDate: "2019-08-12",
+    endDate: "2019-08-22",
     duration: "14",
     workdays: "10",
     holidays: "4",
@@ -86,7 +89,8 @@ const ActualBody = [
   },
   {
     status: false,
-    dates: " 112.08.2019 - 22.08.2019",
+    startDate: "2020-08-12",
+    endDate: "2019-08-22",
     duration: 14,
     workdays: 10,
     holidays: 4,
@@ -94,11 +98,23 @@ const ActualBody = [
   },
 ];
 export default function Vacations() {
+  const [selectedDate, setSelectedDate] = useState(new Date().getFullYear());
   return (
     <div className="space-y-4">
-      <DateSelection />
-      <PlannedVacation header={vacationHeader} body={vacationsBody} />
-      <ActualVacations header={ActualHeader} body={ActualBody} />
+      <DateSelection
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
+      <PlannedVacation
+        header={vacationHeader}
+        body={vacationsBody}
+        year={selectedDate}
+      />
+      <ActualVacations
+        header={ActualHeader}
+        body={ActualBody}
+        year={selectedDate}
+      />
     </div>
   );
 }

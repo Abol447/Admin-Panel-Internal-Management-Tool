@@ -1,25 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "../../common/Table";
 import ElementDropDown from "../../common/ElementDropDown";
 import openIcon from "../../asset/pic/up_drop_down.svg";
 import closeIcon from "../../asset/pic/arrow_drop_down.svg";
 import Select from "../../common/Select";
 import TableBody from "./TableBody";
+import { useSearchParams } from "react-router-dom";
+import { SearchParams } from "../../utils/searchParams";
+import usefilterProject from "./hooks/usefilterProject";
 export default function ProjectTable({ header, body }) {
+  const filterOpt = ["active", "inactive", "All"];
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = new SearchParams(searchParams, setSearchParams);
+  function filterFn(selectedItem) {
+    setSelectedFilter(selectedItem);
+    query.set("project", selectedItem);
+  }
+  const { setSelectedFilter, filterParam, selectedFilter } =
+    usefilterProject(query);
   return (
     <div>
       <ElementDropDown>
         <ElementDropDown.header openIcon={openIcon} closeIcon={closeIcon}>
           <div className="flex justify-between w-[1024px]">
             <div className="font-medium text-[20px]">Projects</div>
-            <Select opt={["filter"]} />
+            <Select value={selectedFilter} fn={filterFn} opt={filterOpt} />
           </div>
         </ElementDropDown.header>
         <ElementDropDown.body>
           <Table data={body}>
             <Table.header content={header} />
 
-            <Table.body value={true} id={"status"}>
+            <Table.body
+              value={filterParam.value}
+              id={filterParam.id}
+              fn={(id, value, data) =>
+                data.filter((item) => item[id] === value)
+              }
+            >
               {(rows) => <TableBody rows={rows} />}
             </Table.body>
           </Table>
