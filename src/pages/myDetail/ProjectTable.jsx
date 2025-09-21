@@ -29,7 +29,7 @@ export default function ProjectTable({ header, body }) {
         </ElementDropDown.header>
         <ElementDropDown.body>
           <Table data={body}>
-            <Table.header content={header} />
+            <Table.header content={header} sortFn={sortFn} />
 
             <Table.body
               value={filterParam.value}
@@ -45,4 +45,31 @@ export default function ProjectTable({ header, body }) {
       </ElementDropDown>
     </div>
   );
+}
+
+function sortFn(data, columnIndex, direction) {
+  const key = [
+    "status",
+    "ProjectTask",
+    "Role",
+    "Task",
+    "StartDate",
+    "Capacity",
+  ];
+  const sorted = [...data].sort((a, b) => {
+    const aVal = a[key[columnIndex]];
+    const bVal = b[key[columnIndex]];
+
+    if (!isNaN(aVal) && !isNaN(bVal)) {
+      return direction === "asc"
+        ? Number(aVal) - Number(bVal)
+        : Number(bVal) - Number(aVal);
+    }
+
+    return direction === "asc"
+      ? String(aVal).localeCompare(String(bVal))
+      : String(bVal).localeCompare(String(aVal));
+  });
+
+  return sorted;
 }

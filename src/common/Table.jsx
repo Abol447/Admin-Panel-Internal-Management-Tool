@@ -1,18 +1,43 @@
-import React, { createContext, useContext } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 export const TableContext = createContext();
 export default function Table({ children, data }) {
+  const [originalData] = useState(data);
+  const [displayData, setDisplayData] = useState(data);
   return (
     <TableContext.Provider
       value={{
-        data: data,
+        displayData: displayData,
+        originalData: originalData,
+        setDisplayData: setDisplayData,
       }}
     >
       <table className="tbStyle">{children}</table>
     </TableContext.Provider>
   );
 }
-export function TableHeader({ content }) {
+export function TableHeader({ content, sortFn }) {
+  const { displayData, setDisplayData } = useContext(TableContext);
+  const [sortConfig, setSortConfig] = useState({
+    index: null,
+    direction: "asc",
+  });
+  const handleClick = (index) => {
+    if (!sortFn) return;
+    let direction = "asc";
+    if (sortConfig.index === index && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ index, direction });
+    const sorted = sortFn(displayData, index, direction);
+    setDisplayData([...sorted]);
+  };
   return (
     <thead>
       <tr className="TbHeaderStyle">
@@ -20,9 +45,10 @@ export function TableHeader({ content }) {
           <th
             key={index}
             className="TbHeaderCellStyle"
-            style={{ width: item["width"] }}
+            style={{ width: item.width }}
+            onClick={() => handleClick(index)}
           >
-            {item["body"]}
+            {item.body}
           </th>
         ))}
       </tr>
@@ -30,12 +56,17 @@ export function TableHeader({ content }) {
   );
 }
 export function TableBody({ children, id = null, value = null, fn = null }) {
-  let { data } = useContext(TableContext);
-  if (fn != null && id != null && value != null) {
-    data = fn(id, value, data);
-  }
+  let { originalData, setDisplayData, displayData } = useContext(TableContext);
+  useEffect(() => {
+    if (fn != null && id != null && value != null) {
+      const filtered = fn(id, value, originalData);
+      setDisplayData(filtered);
+    } else {
+      setDisplayData(originalData);
+    }
+  }, [fn, id, value, originalData, setDisplayData]);
 
-  return <tbody className="bg-white">{children(data)}</tbody>;
+  return <tbody className="bg-white">{children(displayData)}</tbody>;
 }
 
 Table.header = TableHeader;
