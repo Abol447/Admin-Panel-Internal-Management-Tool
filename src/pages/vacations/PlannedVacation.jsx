@@ -3,8 +3,9 @@ import Button from "../../common/Button";
 import { Plus } from "../../component/UI/Icon";
 import Table from "../../common/Table";
 import TableBody from "./TableBody";
+import filterByDate from "../../utils/filterByDate";
 
-export default function PlannedVacation({ header, body }) {
+export default function PlannedVacation({ header, body, year }) {
   return (
     <div className="space-y-4 bg-white py-[10px] rounded-[14px] w-[1128px] ]">
       <div className="flex justify-between items-center px-6">
@@ -20,7 +21,9 @@ export default function PlannedVacation({ header, body }) {
       </div>
       <Table data={body}>
         <Table.header content={header} />
-        <Table.body>{(rows) => <TableBody rows={rows} />}</Table.body>
+        <Table.body fn={filterByDate} id={"startDate"} value={year}>
+          {(rows) => <TableBody rows={rows} />}
+        </Table.body>
       </Table>
     </div>
   );
