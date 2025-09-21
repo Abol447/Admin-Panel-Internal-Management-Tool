@@ -12,8 +12,8 @@ import useGet from "../../hooks/useGet";
 const PieChart = React.lazy(() => import("./PieChart"));
 const Chart = React.lazy(() => import("./Chart"));
 export default function Dasboard() {
-  const { data } = useGet("url", "getChartData");
-  const { data: pie } = useGet("url", "getPieChartInfo");
+  // const { data } = useGet("url", "getChartData");
+  // const { data: pie } = useGet("url", "getPieChartInfo");
   const chartInfo = [
     {
       data: [
@@ -68,7 +68,7 @@ export default function Dasboard() {
     <div className="flex gap-[43px]">
       <div className="flex flex-wrap justify-center tablet:justify-start gap-4 w-full">
         <WidgetContainer>
-          <Pagination lenght={3}>
+          <Pagination lenght={2}>
             <Pagination.leftBtn
               icon={<img src={leftBtn} className="fill-dotBg w-6 h-6" />}
             />
