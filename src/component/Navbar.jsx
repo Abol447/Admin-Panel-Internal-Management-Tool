@@ -8,7 +8,9 @@ import { useEffect, useRef, useState } from "react";
 
 import SidebarMenu from "./SidebarMenu";
 import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
 const svg = new Svg();
+
 export default function Navbar({
   dropDown,
   setDropDown,
@@ -25,6 +27,33 @@ export default function Navbar({
       x: menu ? 210 : 0,
     });
   }, [menu]);
+
+
+
+
+  const [query, setQuery] = useState("");
+  console.log("query is :", query);
+
+
+  const SearchQuery = {
+    mydetail: '/My-Detail',
+    Plannedvacations: '/Vacations',
+    Actualvacations: '/Vacations',
+    login: '/login',
+    CompanyFacts : '/',
+    Statistics : '/',
+    AssignedRisks : '/',
+    dashboard : '/'
+  };
+
+  const navigate = useNavigate();
+
+  const filteredKeys = query.trim() === "" ? []
+    : Object.keys(SearchQuery).filter(key =>
+      key.toLowerCase().includes(query.toLowerCase())
+    );
+
+
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
       <div className="flex items-center gap-4">
@@ -77,9 +106,28 @@ export default function Navbar({
           </DropDown>
         </div>
 
-        <div className="hidden tablet:block">
-          <SearchInput />
+
+        <div className="relative w-[250px]">
+          <SearchInput query={query} setQuery={setQuery} />
+
+          {filteredKeys.length > 0 && (
+            <ul className="absolute top-full mt-1 w-full bg-white shadow p-3 rounded-md z-50">
+              {filteredKeys.map((key) => (
+                <li
+                  key={key}
+                  className="p-2 hover:bg-gray-100 cursor-pointer text-blue-600 rounded"
+                  onClick={() => {
+                    navigate(SearchQuery[key]);
+                    setQuery(""); 
+                  }}
+                >
+                  {key}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
+
       </div>
       <div
         className="tablet:hidden px-5"

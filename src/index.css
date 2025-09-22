@@ -27,7 +27,7 @@
     @apply py-3 pl-6;
   }
   .DropDown--style {
-    @apply space-y-[6px] bg-white py-[22px] rounded-[14px] w-[1128px];
+    @apply space-y-[6px] bg-white py-[22px] rounded-[14px] w-auto xl:w-[1128px];
   }
   .TbHeaderCellStyle {
     @apply pl-6 font-normal text-[12px] text-left;
@@ -39,7 +39,7 @@
     @apply flex items-center gap-4 w-[144px] h-6 font-normal underline;
   }
   .form--input {
-    @apply bg-[#F1F1F1] px-[14px] py-[10px] rounded-[3px] h-9 font-normal text-[14px] leading-4;
+    @apply bg-[#F1F1F1] px-[14px] w-[20px] py-[10px] rounded-[3px] h-9 font-normal text-[14px] leading-4;
   }
   .select--btn {
     @apply bg-[position:right_0.75rem_center] bg-[url(./asset/pic/up_drop_down.svg)] bg-no-repeat;

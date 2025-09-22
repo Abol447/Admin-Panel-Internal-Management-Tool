@@ -52,11 +52,11 @@ const projectBody = [
 export default function MyDetail() {
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-10 bg-white px-6 py-[16px] rounded-[14px] w-[1128px] h-[472px]">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-10 bg-white px-6 py-[16px] rounded-[14px] xl:w-[1128px] xl:h-[472px]">
         <PersonalForm />
         <PersonalInfo />
       </div>
-      <ProjectTable header={projectHeader} body={projectBody} />
+      {/* <ProjectTable header={projectHeader} body={projectBody} /> */}
     </div>
   );
 }
