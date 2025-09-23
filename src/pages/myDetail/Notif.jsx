@@ -1,5 +1,6 @@
 import DropDown from "../../component/DropDown";
 import { IoNotifications } from "react-icons/io5";
+import MessageNotif from "../../component/UI/MessageNotif";
 // import profile from "../asset/pic/baseline-account_circle-24px.png";
 
 function Notif({ dropDownNotif, setDropDownNotif }) {
@@ -19,8 +20,11 @@ function Notif({ dropDownNotif, setDropDownNotif }) {
         <IoNotifications />
       </button>
 
-      <DropDown open={dropDownNotif} className="top-[70px] right-[34px]">
-        this is notif modal
+      <DropDown
+        width="300px"
+        open={dropDownNotif}
+        className="top-[70px] right-[34px]">
+        <MessageNotif />
       </DropDown>
     </>
   );

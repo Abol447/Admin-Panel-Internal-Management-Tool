@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-export default function DropDown({ children, open , className }) {
+export default function DropDown({ children, open, className , width = "220px" }) {
   const dropDown = useRef();
   useEffect(() => {
     if (open) {
@@ -24,8 +24,9 @@ export default function DropDown({ children, open , className }) {
   return (
     <div
       ref={dropDown}
-      className={`${className} z-[100] absolute bg-white opacity-0 px-[32px] py-[10px] rounded-[14px] w-[220px] h-[220px]`}
-      
+      className={`${className} z-[100] absolute bg-white opacity-0 px-[32px] py-[10px] rounded-[14px] h-[220px]`}
+      style={{ width }}
+
     >
       {children}
     </div>

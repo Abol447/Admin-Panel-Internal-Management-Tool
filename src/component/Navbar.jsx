@@ -40,10 +40,10 @@ export default function Navbar({
     Plannedvacations: '/Vacations',
     Actualvacations: '/Vacations',
     login: '/login',
-    CompanyFacts : '/',
-    Statistics : '/',
-    AssignedRisks : '/',
-    dashboard : '/'
+    CompanyFacts: '/',
+    Statistics: '/',
+    AssignedRisks: '/',
+    dashboard: '/'
   };
 
   const navigate = useNavigate();
@@ -78,7 +78,10 @@ export default function Navbar({
               </div>
             )}
           </div>
-          <DropDown className="top-[70px] left-[34px]" open={dropDown}>
+          <DropDown
+            width="240px"
+            className="top-[70px] left-[34px]"
+            open={dropDown}>
             <DropDownElement
               text={"My details"}
               setOPen={setDropDown}
@@ -118,7 +121,7 @@ export default function Navbar({
                   className="p-2 hover:bg-gray-100 cursor-pointer text-blue-600 rounded"
                   onClick={() => {
                     navigate(SearchQuery[key]);
-                    setQuery(""); 
+                    setQuery("");
                   }}
                 >
                   {key}
