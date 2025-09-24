@@ -1,14 +1,22 @@
 import React from "react";
 
-export default function Select({ opt = [], register = null, name, fn, value }) {
+export default function Select({
+  opt = [],
+  register = null,
+  name,
+  fn,
+  value,
+  width,
+}) {
   const selectProps = register != null ? register(name) : {};
   return (
     <div>
       <select
+        style={{ width: width }}
         value={value}
         onChange={(e) => fn(e.currentTarget.value)}
         {...selectProps}
-        className="w-[184px] appearance-none select--btn form--input"
+        className="appearance-none select--btn form--input"
       >
         <option value="" hidden>
           Fillter{" "}

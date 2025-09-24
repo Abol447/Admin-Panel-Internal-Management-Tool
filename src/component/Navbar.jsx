@@ -28,31 +28,28 @@ export default function Navbar({
     });
   }, [menu]);
 
-
-
-
   const [query, setQuery] = useState("");
   console.log("query is :", query);
 
-
   const SearchQuery = {
-    mydetail: '/My-Detail',
-    Plannedvacations: '/Vacations',
-    Actualvacations: '/Vacations',
-    login: '/login',
-    CompanyFacts: '/',
-    Statistics: '/',
-    AssignedRisks: '/',
-    dashboard: '/'
+    mydetail: "/My-Detail",
+    Plannedvacations: "/Vacations",
+    Actualvacations: "/Vacations",
+    login: "/login",
+    CompanyFacts: "/",
+    Statistics: "/",
+    AssignedRisks: "/",
+    dashboard: "/",
   };
 
   const navigate = useNavigate();
 
-  const filteredKeys = query.trim() === "" ? []
-    : Object.keys(SearchQuery).filter(key =>
-      key.toLowerCase().includes(query.toLowerCase())
-    );
-
+  const filteredKeys =
+    query.trim() === ""
+      ? []
+      : Object.keys(SearchQuery).filter((key) =>
+          key.toLowerCase().includes(query.toLowerCase())
+        );
 
   return (
     <div className="flex justify-between items-center bg-white rounded-b-lg h-[64px]">
@@ -81,7 +78,8 @@ export default function Navbar({
           <DropDown
             width="240px"
             className="top-[70px] left-[34px]"
-            open={dropDown}>
+            open={dropDown}
+          >
             <DropDownElement
               text={"My details"}
               setOPen={setDropDown}
@@ -109,16 +107,15 @@ export default function Navbar({
           </DropDown>
         </div>
 
-
-        <div className="relative w-[250px]">
+        <div className="hidden sm:block relative w-[250px]">
           <SearchInput query={query} setQuery={setQuery} />
 
           {filteredKeys.length > 0 && (
-            <ul className="absolute top-full mt-1 w-full bg-white shadow p-3 rounded-md z-50">
+            <ul className="top-full z-50 absolute bg-white shadow mt-1 p-3 rounded-md w-full">
               {filteredKeys.map((key) => (
                 <li
                   key={key}
-                  className="p-2 hover:bg-gray-100 cursor-pointer text-blue-600 rounded"
+                  className="hover:bg-gray-100 p-2 rounded text-blue-600 cursor-pointer"
                   onClick={() => {
                     navigate(SearchQuery[key]);
                     setQuery("");
@@ -130,10 +127,9 @@ export default function Navbar({
             </ul>
           )}
         </div>
-
       </div>
       <div
-        className="tablet:hidden px-5"
+        className="sm:hidden px-5"
         onClick={() => {
           setMenu((value) => !value);
         }}
@@ -146,7 +142,7 @@ export default function Navbar({
           <SidebarMenu />
         </div>
       </div>
-      <div className="hidden tablet:block">
+      <div className="hidden sm:block">
         <Notif
           dropDownNotif={dropDownNotif}
           setDropDownNotif={setDropDownNotif}

@@ -26,7 +26,9 @@ export default function Layout() {
             <Sidebar />
           </div>
 
-          <Outlet />
+          <div className="flex justify-center">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>

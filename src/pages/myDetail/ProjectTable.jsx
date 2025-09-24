@@ -22,9 +22,16 @@ export default function ProjectTable({ header, body }) {
     <div>
       <ElementDropDown>
         <ElementDropDown.header openIcon={openIcon} closeIcon={closeIcon}>
-          <div className="flex justify-between w-[1024px]">
-            <div className="font-medium text-[20px]">Projects</div>
-            <Select value={selectedFilter} fn={filterFn} opt={filterOpt} />
+          <div className="flex justify-between w-full desktop:w-[1024px]">
+            <div className="font-medium text-[16px] md:text-[20px]">
+              Projects
+            </div>
+            <Select
+              value={selectedFilter}
+              fn={filterFn}
+              opt={filterOpt}
+              width={"184px"}
+            />
           </div>
         </ElementDropDown.header>
         <ElementDropDown.body>
