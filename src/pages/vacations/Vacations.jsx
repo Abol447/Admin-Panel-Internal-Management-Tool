@@ -118,18 +118,20 @@ export default function Vacations() {
         body={ActualBody}
         year={selectedDate}
       />
-      <Modal setOpen={setModalOpen} open={modalOpen}>
-        <Modal.icon
-          icon={
-            <div>
-              <AiOutlineClose />
-            </div>
-          }
-        />
-        <Modal.body>
-          <div>modal</div>
-        </Modal.body>
-      </Modal>
+      {modalOpen ? (
+        <Modal setOpen={setModalOpen} open={modalOpen}>
+          <Modal.icon
+            icon={
+              <div>
+                <AiOutlineClose />
+              </div>
+            }
+          />
+          <Modal.body>
+            <div>modal</div>
+          </Modal.body>
+        </Modal>
+      ) : null}
     </div>
   );
 }

@@ -18,7 +18,9 @@ export default function Table({ children, data }) {
         setDisplayData: setDisplayData,
       }}
     >
-      <table className="tbStyle">{children}</table>
+      <div className="tablet:overflow-visible overflow-x-scroll">
+        <table className="tbStyle">{children}</table>
+      </div>
     </TableContext.Provider>
   );
 }
@@ -45,7 +47,7 @@ export function TableHeader({ content, sortFn }) {
           <th
             key={index}
             className="TbHeaderCellStyle"
-            style={{ width: item.width }}
+            style={{ minWidth: item.width }}
             onClick={() => handleClick(index)}
           >
             {item.body}
