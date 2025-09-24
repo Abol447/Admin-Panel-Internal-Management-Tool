@@ -1,8 +1,13 @@
 import React from "react";
 
-export default function Counter({ children }) {
+export default function Counter({ children, width, height }) {
   return (
-    <div className="flex justify-between items-center h-full">{children}</div>
+    <div
+      style={{ width: width, height: height }}
+      className="flex justify-between items-center"
+    >
+      {children}
+    </div>
   );
 }
 

@@ -47,4 +47,7 @@
   .link--style {
     @apply mt-3 p-2 text-[#605BFF] hover:underline;
   }
+  .modal--container {
+    @apply bg-[#D1D1D6] shadow-md shadow-slate-500 p-5 rounded-xl w-[500px] h-[350px];
+  }
 }

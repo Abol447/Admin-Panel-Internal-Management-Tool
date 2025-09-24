@@ -21,7 +21,7 @@ export default function Layout() {
 
       <div className="relative">
         {dropDown || dropDownNotif || menu ? <BgBlur /> : null}
-        <div className={`flex gap-4 px-4 py-4`}>
+        <div className={`flex gap-4 sm:px-4 py-4`}>
           <div className="hidden sm:flex">
             <Sidebar />
           </div>

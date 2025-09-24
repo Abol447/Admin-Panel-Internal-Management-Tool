@@ -24,7 +24,7 @@ export default function Chart({ titr, category, width, chartInfo, lable }) {
         <div className="text-[#8E8E93] text-[16px]">{category}</div>
       </div>
 
-      <div className="flex justify-center items-center w-[330px] desktop:w-[384px] h-[315px]">
+      <div className="flex justify-center items-center w-[300px] desktop:w-[384px] h-[315px]">
         <VictoryChart
           height={258}
           width={384}

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import DateSelection from "./DateSelection";
 import PlannedVacation from "./PlannedVacation";
-import EditsIcon from "../../component/UI/EditsIcon";
-import StatuseCircle from "../../common/StatuseCircle";
+import { AiOutlineClose } from "react-icons/ai";
 import ActualVacations from "./ActualVacations";
+import Modal from "../../common/Modal";
 
 const vacationHeader = [
   {
@@ -98,14 +98,17 @@ const ActualBody = [
   },
 ];
 export default function Vacations() {
+  const [modalOpen, setModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date().getFullYear());
   return (
-    <div className="space-y-4">
+    <div className="relative space-y-4">
       <DateSelection
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
       />
       <PlannedVacation
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
         header={vacationHeader}
         body={vacationsBody}
         year={selectedDate}
@@ -115,6 +118,18 @@ export default function Vacations() {
         body={ActualBody}
         year={selectedDate}
       />
+      <Modal setOpen={setModalOpen} open={modalOpen}>
+        <Modal.icon
+          icon={
+            <div>
+              <AiOutlineClose />
+            </div>
+          }
+        />
+        <Modal.body>
+          <div>modal</div>
+        </Modal.body>
+      </Modal>
     </div>
   );
 }
