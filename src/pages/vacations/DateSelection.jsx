@@ -17,7 +17,7 @@ export default function DateSelection({ selectedDate, setSelectedDate }) {
           Select the date
         </div>
         <div className="gap-[6px] bg-[#F1F1F1] w-[184px] h-9">
-          <Counter>
+          <Counter width={"184px"} height={"36px"}>
             <Counter.decBtn
               icon={svgClass.LeftArrow("w-6 h-6 fill-svgBlue")}
               decFn={setSelectedDate}
