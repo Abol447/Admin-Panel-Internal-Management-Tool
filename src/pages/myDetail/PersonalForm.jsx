@@ -29,7 +29,7 @@ export default function PersonalForm() {
     lableClassName: "form--titr h-[14px]",
   };
   return (
-    <form className="space-y-4 bg-white">
+    <form className="space-y-4 bg-white ">
       <div className="flex items-center gap-4">
         <h2 className="font-medium text-[20px]">My details</h2>
         <IconContainer>
@@ -42,19 +42,19 @@ export default function PersonalForm() {
             {...inputProp}
             label={"Name"}
             registerName={"name"}
-            className="w-[284px] lg:w-[284px] xl:w-[384px] form--input"
+            className="w-[284px] md:w-[350px] lg:w-[384px] form--input"
           />
           <div className="flex items-center gap-4">
             <Input
               {...inputProp}
               label={"Practice"}
               registerName={"Practice"}
-              className="w-[134px] xl:w-[184px] form--input"
+              className="w-[134px] md:w-[167px] lg:w-[184px] form--input"
             />
             <FormSelect
               opt={["Paris"]}
               label={"Branch"}
-              className="space-y-2 w-[134px] xl:w-[184px]"
+              className="space-y-2 w-[134px] md:w-[167px] lg:w-[184px]"
               registerName={"Branch"}
               {...inputProp}
             />
@@ -63,13 +63,13 @@ export default function PersonalForm() {
             {...inputProp}
             label={"Division"}
             registerName={"Division"}
-            className="w-[284px] lg:w-[284px] xl:w-[384px] form--input"
+            className="w-[284px]  md:w-[350px] lg:w-[384px] form--input"
           />
           <Input
             {...inputProp}
             label={"Login"}
             registerName={"Login"}
-            className="w-[284px] lg:w-[284px] xl:w-[384px] form--input"
+            className="w-[284px]  md:w-[350px] lg:w-[384px] form--input"
           />
         </div>
         <div className="space-y-[28px]">
@@ -77,39 +77,39 @@ export default function PersonalForm() {
             {...inputProp}
             label={"Title"}
             registerName={"Title"}
-            className="w-[284px] lg:w-[284px] xl:w-[384px] form--input"
+            className="w-[284px]  md:w-[350px] lg:w-[384px] form--input"
           />
           <div className="flex items-center gap-4">
             <Input
               {...inputProp}
               label={"Contract"}
               registerName={"Contract"}
-              className="w-[134px] xl:w-[184px] form--input"
+              className="w-[134px] md:w-[167px] lg:w-[184px] form--input"
             />
             <Input
               {...inputProp}
               label={"Grade"}
               registerName={"Grade"}
-              className="w-[134px] xl:w-[184px] form--input"
+              className="w-[134px] md:w-[167px] lg:w-[184px] form--input"
             />
           </div>
           <Input
             {...inputProp}
             label={"Division manager"}
             registerName={"DivisionManager"}
-            className="w-[284px] lg:w-[284px] xl:w-[384px] form--input"
+            className="w-[284px]  md:w-[350px] lg:w-[384px] form--input"
           />
           <div className="flex items-center gap-4">
             <Input
               {...inputProp}
               label={"Status history"}
               registerName={"Status"}
-              className="w-[134px] xl:w-[184px] form--input"
+              className="w-[134px] md:w-[167px] lg:w-[184px] form--input"
             />
             <Input
               {...inputProp}
               registerName={"StatusDate"}
-              className="w-[134px] xl:w-[184px] form--input"
+              className="w-[134px] md:w-[167px] lg:w-[184px] form--input"
             />
           </div>
         </div>

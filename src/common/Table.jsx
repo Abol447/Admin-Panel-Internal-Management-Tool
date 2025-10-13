@@ -18,7 +18,7 @@ export default function Table({ children, data }) {
         setDisplayData: setDisplayData,
       }}
     >
-      <div className="tablet:overflow-visible overflow-x-scroll">
+      <div className=" overflow-x-scroll ">
         <table className="tbStyle">{children}</table>
       </div>
     </TableContext.Provider>

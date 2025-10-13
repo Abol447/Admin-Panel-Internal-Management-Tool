@@ -27,7 +27,7 @@
     @apply py-3 pl-6;
   }
   .DropDown--style {
-    @apply space-y-[6px] bg-white py-[22px] rounded-[14px] w-[380px] sm:w-[440px] xl:w-[1128px];
+    @apply space-y-[6px] py-[22px] bg-white rounded-[14px] w-[380px] sm:w-[440px] md:w-[540px] lg:w-[840px] xl:w-[1128px];
   }
   .TbHeaderCellStyle {
     @apply pl-6 font-normal text-[12px] text-left text-nowrap;
